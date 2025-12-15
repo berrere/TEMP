@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="tr">
+
+ <div id="google_translate_element" style="display:none;"></div>
+
 <head>
+
+   
+<script type="text/javascript">
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'tr',
+        includedLanguages: 'tr,ar,en,ru,es,ku,zh-CN',
+        autoDisplay: false
+    }, 'google_translate_element');
+}
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TEMP – Türkiye E-Mobil Pazarlama</title>
@@ -9,7 +26,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        * {
+        * 
+        {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -19,7 +37,16 @@
         body {
             background: #f5f7fb;
             color: #333;
+            transition: .3s;
         }
+
+        /* DARK MODE */
+        body.dark {
+            background: #0f0f11;
+            color: #e9eef8;
+        }
+        body.dark a { color: #9ecbff; }
+        body.dark nav.scrolled { background: rgba(20,20,20,0.9); }
 
         /* NAVBAR */
         nav {
@@ -52,7 +79,8 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 25px;
+            gap: 18px;
+            align-items:center;
         }
 
         nav ul li a {
@@ -64,6 +92,26 @@
 
         nav ul li a:hover {
             color: #1a73e8;
+        }
+
+        /* dark mode toggle */
+        .controls {
+            display:flex;
+            gap:8px;
+            align-items:center;
+            margin-left: 12px;
+        }
+        .btn {
+            background:#1a73e8;
+            color:white;
+            border:none;
+            padding:8px 12px;
+            border-radius:8px;
+            cursor:pointer;
+            font-weight:600;
+        }
+        .btn.secondary {
+            background:#5865F2;
         }
 
         /* HERO */
@@ -148,6 +196,8 @@
             transition: .3s;
         }
 
+        body.dark .card { background:#151517; color: #e6eef9; box-shadow: 0 4px 20px rgba(0,0,0,0.6); }
+
         .card:hover {
             transform: translateY(-8px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.15);
@@ -159,7 +209,59 @@
             font-weight: 600;
         }
 
-        /* FORM SECTION */
+        /* İSTATİSTİKLER */
+        .stats {
+            display:flex;
+            gap:30px;
+            justify-content:space-between;
+            flex-wrap:wrap;
+            margin-top:20px;
+        }
+        .stat {
+            background: white;
+            padding:24px;
+            border-radius:12px;
+            flex:1;
+            min-width:180px;
+            text-align:center;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        }
+        .stat h3 {
+            font-size:36px;
+            color:#1a73e8;
+        }
+        .stat p { margin-top:8px; font-weight:600; }
+
+        /* EKİP */
+        .team {
+            display:grid;
+            grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+            gap:20px;
+        }
+        .member {
+            background:white;
+            padding:18px;
+            border-radius:12px;
+            text-align:center;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        }
+        .member img { width:110px; height:110px; border-radius:50%; object-fit:cover; margin-bottom:12px; }
+
+        body.dark .team .member { background:#151517; }
+
+        /* SSS (FAQ) */
+        .faq-item { margin-bottom:12px; }
+        .faq-q {
+            background:#f0f6ff;
+            padding:12px;
+            border-radius:8px;
+            cursor:pointer;
+            font-weight:600;
+        }
+        body.dark .faq-q { background:#1a1a1a; }
+        .faq-a { display:none; padding:12px; border-left:3px solid #1a73e8; background:transparent; }
+
+        /* FORM */
         .form-container {
             background: white;
             padding: 25px;
@@ -176,68 +278,149 @@
             height: 80vh; /* Daha kısa ve ekran yüksekliğine göre */
         }
 
-        /* DISCORD BUTTON */
-        .discord-btn {
-            display: inline-block;
-            background: #5865F2;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: .3s;
+        /* CANLI DESTEK (CHAT) */
+        .support-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 25px;
+            z-index: 3000;
         }
-
-        .discord-btn:hover {
-            background: #4752c4;
-        }
-
-        /* FOOTER */
-        footer {
+        .support-btn button {
             background: #1a73e8;
-            color: white;
-            padding: 30px;
-            text-align: center;
-            margin-top: 40px;
+            color: #fff;
+            border: none;
+            width:64px;height:64px;border-radius:50%;font-size:28px;cursor:pointer;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
         }
+        .chat-window {
+            position: fixed;
+            bottom: 110px;
+            right: 25px;
+            width: 320px;
+            max-width: calc(100% - 40px);
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            display:none;
+            z-index:3000;
+            overflow:hidden;
+        }
+        .chat-header { background:#1a73e8; color:white; padding:12px; font-weight:700; }
+        .chat-body { padding:12px; max-height:260px; overflow:auto; background:#f8fbff; }
+        .chat-input { display:flex; gap:8px; padding:12px; background:#fff; }
+        .chat-input input { flex:1; padding:8px 10px; border-radius:8px; border:1px solid #ddd; }
+        .chat-input button { background:#1a73e8;color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer; }
 
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            header {
-                text-align: center;
-                padding-top: 150px;
-            }
-            .floating {
-                display: none;
-            }
-        }
+        body.dark .chat-window { background:#131313; }
+        body.dark .chat-body { background:#0f0f11; color:#dfe9ff; }
+    
+
+.lang-btn:hover {
+    background: #155ec3;
+}
+
+/* Menü */
+.lang-options {
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.lang-options button {
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: .3s;
+}
+
+.lang-options button:hover {
+    background: #e9e9e9;
+}
+
+/* DISCORD BUTTON */
+.discord-btn {
+    display: inline-block;
+    background: #5865F2;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.discord-btn:hover {
+    background: #4752c4;
+}
+
+/* FOOTER */
+footer {
+    background: #1a73e8;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    header {
+        text-align: center;
+        padding-top: 120px;
+    }
+    .floating {
+        display: none;
+    }
+    nav { padding: 14px 20px; }
+    nav ul { display:none; } /* basit responsive: hamburger ekleyebilirim isteğe bağlı */
+}
     </style>
 </head>
 
 <body>
 
-    <!-- NAV -->
     <nav id="navbar">
-        <div class="logo">TEMP</div>
-        <ul>
-            <li><a href="#anasayfa">Anasayfa</a></li>
-            <li><a href="#hakkimizda">Hakkımızda</a></li>
-            <li><a href="#hizmetler">Hizmetler</a></li>
-            <li><a href="#kayitol">Kayıt Ol</a></li>
-            <li><a href="#iletisim">İletişim</a></li>
-        </ul>
-    </nav>
+    <div class="logo">TEMP</div>
+    <ul>
+        <li><a href="#anasayfa">Anasayfa</a></li>
+        <li><a href="#hakkimizda">Hakkımızda</a></li>
+        <li><a href="#hizmetler">Hizmetler</a></li>
+        <li><a href="#istatistik">İstatistik</a></li>
+        <li><a href="#ekip">Ekibimiz</a></li>
+        <li><a href="#kayitol">Kayıt Ol</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+
+        <!-- Yeni Eklenen Forum Butonu -->
+        <li><a href="https://6924c32366d43.site123.me/#" target="_blank">Forum</a></li>
+    </ul>
+
+    <div class="controls">
+        
+        <button class="btn" id="darkToggle">🌙</button>
+    </div>
+</nav>
+
 
     <!-- HERO -->
     <header id="anasayfa">
         <div>
-            <h1>Türkiye'nin Yeni Nesil<br>E-Mobil Pazarlama Platformu</h1>
-            <p>TEMP, dijital pazarlamada yenilikçi çözümler üreterek işletmelere hız, güç ve modern teknoloji sağlar.</p>
+            <h1>Türkiye'nin Yeni Nesil<br>Girişimci ve Destek platformu</h1>
+            <p>TEMP, dijital projeler Ülke odaklı projeler Genç girişimcilere destek ve yardımlaşma platformudur.</p>
             <a href="#kayitol" class="hero-btn">Ekibe Katıl</a>
-            <a href="https://discord.gg/kXsjCaKA" target="_blank" class="discord-btn">Discord’a Katıl</a>
+            <a href="https://discord.gg/Yp3vbWwGF8" target="_blank" class="discord-btn">Discord’a Katıl</a>
         </div>
 
-        <img src="temp logo.png" alt="TEMP Logo" class="floating" />
+        <img src="temp logo.png" alt="temp logo.png" class="floating" />
     </header>
 
     <!-- HAKKIMIZDA -->
@@ -246,12 +429,12 @@
         <div class="cards">
             <div class="card">
                 <h3>Misyonumuz</h3>
-                <p>Türkiye’de dijital pazarlamayı daha modern, erişilebilir ve güçlü bir hale getirmek.</p>
+                <p>Türkiye’de Teknolijiyi geliştirmek ve sürdürülebilir bir gelecek sunmak.</p>
             </div>
 
             <div class="card">
                 <h3>Vizyonumuz</h3>
-                <p>Dünyada e-mobil pazarlama alanında lider bir Türk markası haline gelmek.</p>
+                <p>Tüm dünyaya erişim sağlamak ve kendi cihazlarımızı tanıtmak.</p>
             </div>
 
             <div class="card">
@@ -266,24 +449,87 @@
         <h2>Hizmetlerimiz</h2>
         <div class="cards">
             <div class="card">
-                <h3>Dijital Reklam Yönetimi</h3>
-                <p>Markanız için profesyonel sosyal medya ve reklam kampanyaları.</p>
+                <h3>Kişiye özel WEB sitesi</h3>
+                <p>Gereksiz pahalı yabancı şirketlere para vermek yerine Yerli platformumuzu tercih ederek Hem uygun fiyatlı Hem de kaliteli bir ürüne sahip olabilirsiniz.</p>
             </div>
 
             <div class="card">
-                <h3>Mobil Çözüm Üretimi</h3>
-                <p>Uygulama, entegrasyon ve otomasyon çözümleri.</p>
+                <h3>Telefon Bilgisayar tabanlı programlar</h3>
+                <p>İstediğiniz uygulamalar Web tabanlı yazar kasa vb.</p>
             </div>
 
             <div class="card">
-                <h3>Pazarlama Stratejileri</h3>
-                <p>İşletmenizin büyümesi için analiz ve stratejik planlama.</p>
+                <h3>TEMPm ürünleri</h3>
+                <p>istediğiniz bir devre veya projeyi sizin yerinize gerçekleştiriyoruz</p>
             </div>
 
             <div class="card">
-                <h3>Ekip Geliştirme</h3>
-                <p>Yeni yeteneklerin dahil olduğu profesyonel ekip yönetim sistemi.</p>
+                <h3>Yazılım ürün lisansları </h3>
+                <p>Pahalı yazılamlar yerine aynı ürünü daha uyguna alarak Hem cebinize hemde ülkemize katkı sağlıyabilirsiniz</p>
             </div>
+        </div>
+    </section>
+
+    <!-- İSTATİSTİK -->
+    <section id="istatistik">
+        <h2>İstatistikler</h2>
+        <div class="stats">
+            <div class="stat">
+                <h3 id="stat-users">0</h3>
+                <p>Aktif Kullanıcı</p>
+            </div>
+            <div class="stat">
+                <h3 id="stat-team">0</h3>
+                <p>Ekip Üyesi</p>
+            </div>
+            <div class="stat">
+                <h3 id="stat-projects">0</h3>
+                <p>Tamamlanan Proje</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EKİP -->
+    <section id="ekip">
+        <h2>Ekibimiz</h2>
+        <div class="team">
+            <div class="member">
+                <img src="https://i.pravatar.cc/150?img=1" alt="Bersi">
+                <h4>Bersi Akdağ</h4>
+                <p>Kurucu & Yönetici</p>
+            </div>
+            <div class="member">
+                <img src="https://i.pravatar.cc/150?img=11" alt="">
+                <h4>burda sizde olabilirsiniz</h4>
+                <p> burda sizde olabilirsiniz</p>
+            </div>
+            <div class="member">
+                <img src="https://i.pravatar.cc/150?img=22" alt="">
+                <h4>burda sizde olabilirsiniz</h4>
+                <p>burda sizde olabilirsiniz</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SSS -->
+    <section id="sss">
+        <h2>Sık Sorulan Sorular</h2>
+
+        <div class="faq-item">
+            <div class="faq-q" data-open="false">TEMP ekibine nasıl katılırım?</div>
+            <div class="faq-a">Kayıt formunu doldurarak başvuru yapabilirsiniz.Formu geçenleri arıyoruz.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" data-open="false">Katılım ücreti var mı?</div>
+            <div class="faq-a">Hayır, tamamen ücretsizdir. Ama eyer TEMPm üyesi olmak istiyorsanız
+                yaptığımız malzeme harcamalarında beraber ödeme yapılacaktır.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q" data-open="false">Yaş sınırı var mı?</div>
+            <div class="faq-a">Minimum 14-15 yaş gereklidir.</div>
         </div>
     </section>
 
@@ -293,7 +539,8 @@
 
         <div class="form-container">
             <iframe 
-                src="https://docs.google.com/forms/d/e/1FAIpQLSe_rNNZEoioqbEQ6mn3YopGPBTD18CtZxaks-zhi0QRziHpbw/viewform?embedded=true">
+                src="https://docs.google.com/forms/d/e/1FAIpQLSe_rNNZEoioqbEQ6mn3YopGPBTD18CtZxaks-zhi0QRziHpbw/viewform?embedded=true"
+                title="TEMP Başvuru Formu">
             </iframe>
         </div>
     </section>
@@ -305,20 +552,142 @@
         <p>Instagram: <b>tekno.sohbet.tr</b></p>
     </section>
 
+
+
+
+<!-- CANLI DESTEK -->
+<div class="support-btn">
+    <button id="supportToggle" title="Canlı Destek">💬</button>
+</div>
+
+<div class="chat-window" id="chatWindow" aria-hidden="true">
+    <div class="chat-header">TEMP Destek</div>
+    <div class="chat-body" id="chatBody">
+        <div>Merhaba! Size Nasıl yardımcı olabilirim?</div>
+    </div>
+    <div class="chat-input">
+        <input type="text" id="chatInput" placeholder="Mesaj yaz..." />
+        <button id="chatSend">Gönder</button>
+    </div>
+</div>
+
     <!-- FOOTER -->
     <footer>
         © 2025 TEMP – Türkiye E-Mobil Pazarlama. Tüm Hakları Saklıdır.
     </footer>
 
-    <!-- JS: NAV SCROLL EFFECT -->
+    <!-- JS: NAV SCROLL EFFECT + DİĞER FONKSİYONLAR -->
     <script>
+        // NAV SCROLL EFFECT
         window.addEventListener("scroll", () => {
             const nav = document.getElementById("navbar");
             if(window.scrollY > 70) nav.classList.add("scrolled");
             else nav.classList.remove("scrolled");
         });
-    </script>
 
+        // DARK MODE
+        const darkToggle = document.getElementById('darkToggle');
+        darkToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            // değişimi localStorage'e kaydet
+            if(document.body.classList.contains('dark')) localStorage.setItem('temp-dark','1');
+            else localStorage.removeItem('temp-dark');
+        });
+        // başlangıçta localStorage'den oku
+        if(localStorage.getItem('temp-dark')) document.body.classList.add('dark');
+
+        // İSTATİSTİK SAYACI (Scroll ile tetiklenen basit sayaç)
+        const stats = [
+            { id: 'stat-users', target: 350 },
+            { id: 'stat-team', target: 2 },
+            { id: 'stat-projects', target: 1 }
+        ];
+        let statsStarted = false;
+        function startStats() {
+            if(statsStarted) return;
+            statsStarted = true;
+            stats.forEach(s => {
+                const el = document.getElementById(s.id);
+                if(!el) return;
+                let current = 0;
+                const step = Math.max(1, Math.floor(s.target / 120));
+                const interval = setInterval(() => {
+                    current += step;
+                    if(current >= s.target) {
+                        el.textContent = s.target;
+                        clearInterval(interval);
+                    } else {
+                        el.textContent = current;
+                    }
+                }, 15);
+            });
+        }
+        window.addEventListener('scroll', () => {
+            const statSection = document.getElementById('istatistik');
+            if(!statSection) return;
+            const rect = statSection.getBoundingClientRect();
+            if(rect.top < window.innerHeight - 100) startStats();
+        });
+
+        // SSS akordeon
+        document.querySelectorAll('.faq-q').forEach(q => {
+            q.addEventListener('click', () => {
+                const a = q.nextElementSibling;
+                if(!a) return;
+                if(a.style.display === 'block') {
+                    a.style.display = 'none';
+                    q.setAttribute('data-open','false');
+                } else {
+                    a.style.display = 'block';
+                    q.setAttribute('data-open','true');
+                }
+            });
+        });
+
+        
+
+        // CANLI DESTEK (basit frontend simülasyonu)
+        const supportToggle = document.getElementById('supportToggle');
+        const chatWindow = document.getElementById('chatWindow');
+        const chatSend = document.getElementById('chatSend');
+        const chatInput = document.getElementById('chatInput');
+        const chatBody = document.getElementById('chatBody');
+
+        supportToggle.addEventListener('click', () => {
+            const shown = chatWindow.style.display === 'block';
+            chatWindow.style.display = shown ? 'none' : 'block';
+            chatWindow.setAttribute('aria-hidden', shown ? 'true' : 'false');
+        });
+
+        chatSend.addEventListener('click', () => {
+            const msg = chatInput.value.trim();
+            if(!msg) return;
+            const p = document.createElement('div');
+            p.style.margin = '8px 0';
+            p.style.textAlign = 'right';
+            p.textContent = 'Siz: ' + msg;
+            chatBody.appendChild(p);
+            chatInput.value = '';
+
+            // basit otomatik cevap (sunucu entegrasyonun yoksa bu kalsın)
+            setTimeout(()=> {
+                const bot = document.createElement('div');
+                bot.style.margin = '8px 0';
+                bot.textContent = 'TEMP: Teşekkürler, talebiniz alındı. En kısa sürede dönüş yapılacaktır. Dilerseniz temp-turkiyee hesabınadn yazark anında dönüş alabilirsiniz';
+                chatBody.appendChild(bot);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 900);
+        });
+
+        // Enter ile gönder
+        chatInput.addEventListener('keydown', (e) => {
+            if(e.key === 'Enter') {
+                e.preventDefault();
+                chatSend.click();
+            }
+        });
+
+       
+    </script>
 </body>
 </html>
-    
