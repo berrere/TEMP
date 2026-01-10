@@ -1,693 +1,4465 @@
 <!DOCTYPE html>
 <html lang="tr">
-
- <div id="google_translate_element" style="display:none;"></div>
-
 <head>
-
-   
-<script type="text/javascript">
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-        pageLanguage: 'tr',
-        includedLanguages: 'tr,ar,en,ru,es,ku,zh-CN',
-        autoDisplay: false
-    }, 'google_translate_element');
-}
-</script>
-
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TEMP – Türkiye E-Mobil Pazarlama</title>
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEMP – Türkiye E-Mobil Pazarlama | Teknoloji & Girişimcilik Platformu</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="TEMP - Türkiye'nin lider teknoloji ve girişimcilik platformu. Web geliştirme, yazılım, eğitim ve dijital çözümler.">
+    <meta name="keywords" content="teknoloji, girişimcilik, web geliştirme, yazılım, eğitim, Türkiye, TEMP">
+    <meta name="author" content="TEMP">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="TEMP – Türkiye E-Mobil Pazarlama">
+    <meta property="og:description" content="Türkiye'nin lider teknoloji ve girişimcilik platformu">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
     <style>
-        * 
-        {
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --accent: #06b6d4;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-dark: #0f172a;
+            --card-bg: #ffffff;
+            --border: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 6px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-lg: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
+        .dark-mode {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --text: #f1f5f9;
+            --text-light: #cbd5e1;
+            --bg: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-dark: #020617;
+            --card-bg: #1e293b;
+            --border: #334155;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 6px 15px -3px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* ===== RESET & BASE STYLES ===== */
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
         }
-
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+        
         body {
-            background: #f5f7fb;
-            color: #333;
-            transition: .3s;
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            transition: var(--transition);
+            overflow-x: hidden;
         }
-
-        /* DARK MODE */
-        body.dark {
-            background: #0f0f11;
-            color: #e9eef8;
+        
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
         }
-        body.dark a { color: #9ecbff; }
-        body.dark nav.scrolled { background: rgba(20,20,20,0.9); }
-
-        /* NAVBAR */
-        nav {
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            color: var(--text);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--primary-dark);
+        }
+        
+        /* ===== LAYOUT & CONTAINERS ===== */
+        .container {
             width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* ===== NAVBAR ===== */
+        .navbar {
             position: fixed;
             top: 0;
             left: 0;
-            padding: 20px 50px;
+            width: 100%;
+            background: rgba(var(--bg), 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+        
+        .navbar.scrolled {
+            padding: 0.75rem 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: .3s;
-            z-index: 1000;
         }
-
-        nav.scrolled {
-            background: #ffffffd9;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            padding: 12px 50px;
-        }
-
-        nav .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1a73e8;
-            letter-spacing: 1px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 18px;
-            align-items:center;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: .3s;
-        }
-
-        nav ul li a:hover {
-            color: #1a73e8;
-        }
-
-        /* dark mode toggle */
-        .controls {
-            display:flex;
-            gap:8px;
-            align-items:center;
-            margin-left: 12px;
-        }
-        .btn {
-            background:#1a73e8;
-            color:white;
-            border:none;
-            padding:8px 12px;
-            border-radius:8px;
-            cursor:pointer;
-            font-weight:600;
-        }
-        .btn.secondary {
-            background:#5865F2;
-        }
-
-        /* HERO */
-        header {
-            height: 100vh;
+        
+        .logo {
             display: flex;
             align-items: center;
-            padding: 0 10%;
-            background: linear-gradient(to right, #1a73e8, #4fa3ff);
+            gap: 10px;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-icon {
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--text);
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: var(--gradient);
             color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--border);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-icon {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text);
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            z-index: 1;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-description {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .hero-visual {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45%;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+        
+        .floating-shape {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* ===== FEATURES SECTION ===== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* ===== STATS SECTION ===== */
+        .stats-section {
+            background: var(--gradient);
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* ===== LEARNING PATH SECTION ===== */
+        .learning-path {
+            background: var(--bg-secondary);
+        }
+        
+        .path-steps {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .path-steps::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+        
+        .step {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--card-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            flex-shrink: 0;
+            border: 2px solid var(--border);
+            z-index: 1;
+        }
+        
+        .step-content {
+            flex: 1;
+            padding-top: 0.5rem;
+        }
+        
+        .step-content ul {
+            list-style: none;
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .step-content li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .step-content li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+        
+        /* ===== TEAM SECTION ===== */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .team-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 2rem auto 1rem;
+            border: 4px solid var(--border);
+        }
+        
+        .team-info {
+            padding: 1.5rem;
+        }
+        
+        .team-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .team-social a {
+            color: var(--text-light);
+            font-size: 1.25rem;
+        }
+        
+        .team-social a:hover {
+            color: var(--primary);
+        }
+        
+        /* ===== FAQ SECTION ===== */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .faq-question:hover {
+            background: var(--bg-secondary);
+        }
+        
+        .faq-icon {
+            transition: var(--transition);
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+        
+        /* ===== CONTACT SECTION ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        /* ===== FORM SECTION ===== */
+        .form-container {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-description {
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: #94a3b8;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* ===== CHAT WIDGET ===== */
+        .chat-widget {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+        }
+        
+        .chat-toggle {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 50%;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .chat-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        .chat-box {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 350px;
+            max-width: calc(100vw - 4rem);
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            display: none;
+            flex-direction: column;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+        
+        .chat-box.active {
+            display: flex;
+        }
+        
+        .chat-header {
+            padding: 1rem;
+            background: var(--gradient);
+            color: white;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.25rem;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .chat-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .chat-messages {
+            padding: 1rem;
+            flex: 1;
+            max-height: 300px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .message {
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius);
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        
+        .message.bot {
+            background: var(--bg-secondary);
+            align-self: flex-start;
+        }
+        
+        .message.user {
+            background: var(--primary);
+            color: white;
+            align-self: flex-end;
+        }
+        
+        .chat-input {
+            padding: 1rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 0.5rem;
+            background: var(--bg);
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+        }
+        
+        .chat-input input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .chat-input button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .chat-input button:hover {
+            background: var(--primary-dark);
+        }
+        
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            border: none;
+            font-size: 1.25rem;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+            .hero-visual {
+                display: none;
+            }
+            
+            .hero-content {
+                text-align: center;
+                margin: 0 auto;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: var(--bg);
+                flex-direction: column;
+                padding: 5rem 2rem 2rem;
+                transform: translateX(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 1000;
+                gap: 1.5rem;
+                justify-content: flex-start;
+            }
+            
+            .nav-menu.active {
+                transform: translateX(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-controls {
+                margin-left: auto;
+                margin-right: 1rem;
+            }
+            
+            .chat-box {
+                width: calc(100vw - 2rem);
+                right: 1rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .form-container {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        /* ===== UTILITY CLASSES ===== */
+        .text-center { text-align: center; }
+        .mt-1 { margin-top: 1rem; }
+        .mt-2 { margin-top: 2rem; }
+        .mt-3 { margin-top: 3rem; }
+        .mb-1 { margin-bottom: 1rem; }
+        .mb-2 { margin-bottom: 2rem; }
+        .mb-3 { margin-bottom: 3rem; }
+        .gradient-text {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .badge-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+        .badge-accent {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* ===== GÖREV SİSTEMİ CSS ===== */
+        /* GÖREV SİSTEMİ ANA YAPISI */
+        .task-system-wrapper {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 380px;
+            height: 100vh;
+            background: var(--bg);
+            z-index: 9999;
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid var(--border);
+        }
+
+        .task-system-wrapper.active {
+            transform: translateX(0);
+        }
+
+        /* OVERLAY */
+        .task-system-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9998;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            backdrop-filter: blur(3px);
+        }
+
+        .task-system-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* HEADER */
+        .task-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .task-header h2 {
+            color: white;
+            margin: 0;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .task-header h2 i {
+            font-size: 1.25rem;
+        }
+
+        .task-close-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.25rem;
+        }
+
+        .task-close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        /* TOGGLE BUTTON */
+        .task-toggle-btn {
+            position: fixed;
+            top: 150px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            z-index: 9997;
+            transition: var(--transition);
+            border: none;
+            font-size: 1.5rem;
+        }
+
+        .task-toggle-btn:hover {
+            transform: scale(1.1) rotate(15deg);
+        }
+
+        .task-toggle-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--danger);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: 2px solid var(--bg);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* TABS */
+        .task-tabs {
+            display: flex;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: 0.5rem;
+        }
+
+        .task-tab {
+            flex: 1;
+            padding: 0.75rem;
+            background: none;
+            border: none;
+            border-radius: var(--radius);
+            color: var(--text-light);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .task-tab.active {
+            background: var(--bg);
+            color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .task-tab:hover:not(.active) {
+            background: rgba(var(--primary-rgb), 0.1);
+            color: var(--primary);
+        }
+
+        /* CONTENT AREA */
+        .task-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+        }
+
+        .task-tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .task-tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* STATS BAR */
+        .task-stats-bar {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            border: 1px solid var(--border);
+        }
+
+        .task-stat {
+            text-align: center;
+        }
+
+        .task-stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .task-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* LEVEL PROGRESS */
+        .task-level-container {
+            background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), rgba(var(--secondary-rgb), 0.1));
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .task-level-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .task-level-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .task-level-badge {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .task-level-progress {
+            margin-bottom: 0.75rem;
+        }
+
+        .task-level-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+        }
+
+        .task-level-bar {
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .task-level-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
         }
 
-        header h1 {
-            font-size: 55px;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        header p {
-            margin: 20px 0;
-            font-size: 20px;
-            max-width: 600px;
-        }
-
-        .hero-btn {
-            display: inline-block;
-            background: white;
-            color: #1a73e8;
-            padding: 15px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 600;
-            transition: .3s;
-            margin-right: 15px;
-        }
-
-        .hero-btn:hover {
-            background: #e3e3e3;
-        }
-
-        /* FLOATING ANIMATION */
-        .floating {
+        .task-level-fill::after {
+            content: '';
             position: absolute;
-            right: 8%;
-            bottom: 15%;
-            width: 350px;
-            animation: float 4s infinite ease-in-out;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.4), 
+                transparent);
+            animation: shimmer 2s infinite;
         }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
-        /* SECTION BASE */
-        section {
-            padding: 80px 10%;
+        /* TASKS LIST */
+        .task-category {
+            margin-bottom: 2rem;
         }
 
-        section h2 {
-            font-size: 35px;
-            font-weight: 700;
-            color: #1a73e8;
-            margin-bottom: 25px;
+        .task-category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
         }
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
+        .task-category-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .card {
-            background: white;
-            padding: 25px;
+        .task-category-count {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            background: var(--bg-secondary);
+            padding: 0.25rem 0.5rem;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: .3s;
         }
 
-        body.dark .card { background:#151517; color: #e6eef9; box-shadow: 0 4px 20px rgba(0,0,0,0.6); }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        .task-item {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
         }
 
-        .card h3 {
-            margin-bottom: 12px;
-            color: #1a73e8;
+        .task-item:hover {
+            border-color: var(--primary);
+            transform: translateX(5px);
+            box-shadow: var(--shadow);
+        }
+
+        .task-item.completed {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), var(--bg-secondary));
+            border-color: rgba(16, 185, 129, 0.2);
+        }
+
+        .task-item.locked {
+            opacity: 0.6;
+            filter: grayscale(0.5);
+        }
+
+        .task-checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: var(--transition);
+            background: var(--bg);
+        }
+
+        .task-checkbox.checked {
+            background: var(--success);
+            border-color: var(--success);
+            color: white;
+        }
+
+        .task-checkbox.checked::after {
+            content: '✓';
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .task-checkbox.locked {
+            cursor: not-allowed;
+            background: var(--border);
+        }
+
+        .task-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .task-title {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .task-description {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        .task-reward {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .task-reward i {
+            font-size: 0.7rem;
+        }
+
+        /* ACHIEVEMENTS */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .achievement-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            padding: 1rem;
+            text-align: center;
+            border: 2px solid var(--border);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card.unlocked {
+            border-color: var(--success);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), var(--bg-secondary));
+        }
+
+        .achievement-card.locked {
+            opacity: 0.7;
+            filter: grayscale(0.5);
+        }
+
+        .achievement-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .achievement-title {
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+            color: var(--text);
+        }
+
+        .achievement-desc {
+            font-size: 0.7rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .achievement-reward {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
             font-weight: 600;
         }
 
-        /* İSTATİSTİKLER */
-        .stats {
-            display:flex;
-            gap:30px;
-            justify-content:space-between;
-            flex-wrap:wrap;
-            margin-top:20px;
-        }
-        .stat {
-            background: white;
-            padding:24px;
-            border-radius:12px;
-            flex:1;
-            min-width:180px;
-            text-align:center;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-        }
-        .stat h3 {
-            font-size:36px;
-            color:#1a73e8;
-        }
-        .stat p { margin-top:8px; font-weight:600; }
-
-        /* EKİP */
-        .team {
-            display:grid;
-            grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-            gap:20px;
-        }
-        .member {
-            background:white;
-            padding:18px;
-            border-radius:12px;
-            text-align:center;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-        }
-        .member img { width:110px; height:110px; border-radius:50%; object-fit:cover; margin-bottom:12px; }
-
-        body.dark .team .member { background:#151517; }
-
-        /* SSS (FAQ) */
-        .faq-item { margin-bottom:12px; }
-        .faq-q {
-            background:#f0f6ff;
-            padding:12px;
-            border-radius:8px;
-            cursor:pointer;
-            font-weight:600;
-        }
-        body.dark .faq-q { background:#1a1a1a; }
-        .faq-a { display:none; padding:12px; border-left:3px solid #1a73e8; background:transparent; }
-
-        /* FORM */
-        .form-container {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            max-width: 900px;
-            margin: auto;
+        /* LEADERBOARD */
+        .leaderboard-list {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
         }
 
-        iframe {
-            border-radius: 10px;
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .leaderboard-item:hover {
+            background: rgba(var(--primary-rgb), 0.05);
+        }
+
+        .leaderboard-item:last-child {
+            border-bottom: none;
+        }
+
+        .leaderboard-rank {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+            margin-right: 1rem;
+        }
+
+        .leaderboard-rank-1 {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: white;
+        }
+
+        .leaderboard-rank-2 {
+            background: linear-gradient(135deg, #d1d5db, #9ca3af);
+            color: white;
+        }
+
+        .leaderboard-rank-3 {
+            background: linear-gradient(135deg, #92400e, #78350f);
+            color: white;
+        }
+
+        .leaderboard-rank-other {
+            background: var(--border);
+            color: var(--text-light);
+        }
+
+        .leaderboard-user {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .leaderboard-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border);
+        }
+
+        .leaderboard-info {
+            flex: 1;
+        }
+
+        .leaderboard-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 0.125rem;
+        }
+
+        .leaderboard-level {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        .leaderboard-xp {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.875rem;
+        }
+
+        /* REWARDS SHOP */
+        .rewards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .reward-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            text-align: center;
+            border: 2px solid var(--border);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reward-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .reward-card.purchased {
+            border-color: var(--success);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), var(--bg-secondary));
+        }
+
+        .reward-card.locked {
+            opacity: 0.6;
+        }
+
+        .reward-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        .reward-title {
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .reward-desc {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .reward-price {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .reward-price.locked {
+            background: var(--text-light);
+            cursor: not-allowed;
+        }
+
+        /* DAILY TASKS */
+        .daily-tasks {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(124, 58, 237, 0.05));
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .daily-tasks-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .daily-tasks-title {
+            font-weight: 600;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .daily-streak {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* EMPTY STATE */
+        .task-empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-light);
+        }
+
+        .task-empty-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .task-system-wrapper {
+                width: 100%;
+            }
+            
+            .task-stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .achievements-grid,
+            .rewards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .task-toggle-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+                top: auto;
+                bottom: 100px;
+                right: 20px;
+            }
+        }
+
+        /* ANIMATIONS */
+        @keyframes taskComplete {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .task-complete-animation {
+            animation: taskComplete 0.5s ease;
+        }
+
+        @keyframes levelUp {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .level-up-animation {
+            animation: levelUp 0.7s ease-out;
+        }
+
+        /* ===== NOTIFICATION SYSTEM ===== */
+        .notification-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 350px;
+            pointer-events: none;
+        }
+
+        .notification {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            transform: translateX(120%);
+            opacity: 0;
+            animation: slideIn 0.3s forwards;
+            border-left: 4px solid var(--primary);
+            pointer-events: auto;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+        }
+
+        .notification.success {
+            border-left-color: var(--success);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), var(--card-bg));
+        }
+
+        .notification.warning {
+            border-left-color: var(--warning);
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), var(--card-bg));
+        }
+
+        .notification.error {
+            border-left-color: var(--danger);
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), var(--card-bg));
+        }
+
+        .notification.info {
+            border-left-color: var(--primary);
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), var(--card-bg));
+        }
+
+        .notification-icon {
+            font-size: 20px;
+            margin-top: 2px;
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .notification.success .notification-icon {
+            background: var(--success);
+            color: white;
+        }
+
+        .notification.warning .notification-icon {
+            background: var(--warning);
+            color: white;
+        }
+
+        .notification.error .notification-icon {
+            background: var(--danger);
+            color: white;
+        }
+
+        .notification.info .notification-icon {
+            background: var(--primary);
+            color: white;
+        }
+
+        .notification-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .notification-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .notification-message {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.4;
+            word-break: break-word;
+        }
+
+        .notification-close {
+            background: none;
             border: none;
-            width: 100%;
-            height: 80vh; /* Daha kısa ve ekran yüksekliğine göre */
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 20px;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+            flex-shrink: 0;
         }
 
-        /* CANLI DESTEK (CHAT) */
-        .support-btn {
+        .notification-close:hover {
+            background: var(--border);
+            color: var(--text);
+        }
+
+        @keyframes slideIn {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            to {
+                transform: translateX(120%);
+                opacity: 0;
+            }
+        }
+
+        .notification.hide {
+            animation: slideOut 0.3s forwards;
+        }
+
+        /* Notification Settings Panel */
+        .notification-settings {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            width: 300px;
+            z-index: 9999;
+            border: 1px solid var(--border);
+            transform: translateY(20px);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .notification-settings.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .notification-settings h4 {
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .setting-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .setting-label {
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--border);
+            transition: var(--transition);
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: var(--transition);
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .notification-bell {
             position: fixed;
             bottom: 30px;
-            right: 25px;
-            z-index: 3000;
+            right: 100px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            transition: var(--transition);
         }
-        .support-btn button {
-            background: #1a73e8;
-            color: #fff;
-            border: none;
-            width:64px;height:64px;border-radius:50%;font-size:28px;cursor:pointer;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+
+        .notification-bell:hover {
+            transform: scale(1.1);
         }
-        .chat-window {
-            position: fixed;
-            bottom: 110px;
-            right: 25px;
-            width: 320px;
-            max-width: calc(100% - 40px);
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-            display:none;
-            z-index:3000;
-            overflow:hidden;
+
+        .notification-bell.has-notifications::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 10px;
+            height: 10px;
+            background: var(--danger);
+            border-radius: 50%;
+            border: 2px solid var(--card-bg);
         }
-        .chat-header { background:#1a73e8; color:white; padding:12px; font-weight:700; }
-        .chat-body { padding:12px; max-height:260px; overflow:auto; background:#f8fbff; }
-        .chat-input { display:flex; gap:8px; padding:12px; background:#fff; }
-        .chat-input input { flex:1; padding:8px 10px; border-radius:8px; border:1px solid #ddd; }
-        .chat-input button { background:#1a73e8;color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer; }
-
-        body.dark .chat-window { background:#131313; }
-        body.dark .chat-body { background:#0f0f11; color:#dfe9ff; }
-    
-
-.lang-btn:hover {
-    background: #155ec3;
-}
-
-/* Menü */
-.lang-options {
-    position: absolute;
-    bottom: 70px;
-    left: 0;
-    display: none;
-    flex-direction: column;
-    background: white;
-    padding: 10px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-}
-
-.lang-options button {
-    background: none;
-    border: none;
-    padding: 8px 12px;
-    text-align: left;
-    cursor: pointer;
-    border-radius: 6px;
-    font-size: 16px;
-    transition: .3s;
-}
-
-.lang-options button:hover {
-    background: #e9e9e9;
-}
-
-/* DISCORD BUTTON */
-.discord-btn {
-    display: inline-block;
-    background: #5865F2;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: .3s;
-}
-
-.discord-btn:hover {
-    background: #4752c4;
-}
-
-/* FOOTER */
-footer {
-    background: #1a73e8;
-    color: white;
-    padding: 30px;
-    text-align: center;
-    margin-top: 40px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-    header {
-        text-align: center;
-        padding-top: 120px;
-    }
-    .floating {
-        display: none;
-    }
-    nav { padding: 14px 20px; }
-    nav ul { display:none; } /* basit responsive: hamburger ekleyebilirim isteğe bağlı */
-}
     </style>
 </head>
-
 <body>
+    <!-- Google Translate Element -->
+    <div id="google_translate_element" style="display:none;"></div>
 
-    <nav id="navbar">
-    <div class="logo">TEMP</div>
-    <ul>
-        <li><a href="#anasayfa">Anasayfa</a></li>
-        <li><a href="#hakkimizda">Hakkımızda</a></li>
-        <li><a href="#hizmetler">Hizmetler</a></li>
-        <li><a href="#istatistik">İstatistik</a></li>
-        <li><a href="#ekip">Ekibimiz</a></li>
-        <li><a href="#kayitol">Kayıt Ol</a></li>
-        <li><a href="#iletisim">İletişim</a></li>
-
-        <!-- Yeni Eklenen Forum Butonu -->
-        <li><a href="https://6924c32366d43.site123.me/#" target="_blank">Forum</a></li>
-    </ul>
-
-    <div class="controls">
-        
-        <button class="btn" id="darkToggle">🌙</button>
-    </div>
-</nav>
-
-
-    <!-- HERO -->
-    <header id="anasayfa">
-        <div>
-            <h1>Türkiye'nin Yeni Nesil<br>Girişimci ve Destek platformu</h1>
-            <p>TEMP, dijital projeler Ülke odaklı projeler Genç girişimcilere destek ve yardımlaşma platformudur.</p>
-            <a href="#kayitol" class="hero-btn">Ekibe Katıl</a>
-            <a href="https://discord.gg/Yp3vbWwGF8" target="_blank" class="discord-btn">Discord’a Katıl</a>
-        </div>
-
-        <img src="temp logo.png" alt="temp logo.png" class="floating" />
-    </header>
-
-    <!-- HAKKIMIZDA -->
-    <section id="hakkimizda">
-        <h2>Misyon & Vizyon</h2>
-        <div class="cards">
-            <div class="card">
-                <h3>Misyonumuz</h3>
-                <p>Türkiye’de Teknolijiyi geliştirmek ve sürdürülebilir bir gelecek sunmak.</p>
-            </div>
-
-            <div class="card">
-                <h3>Vizyonumuz</h3>
-                <p>Tüm dünyaya erişim sağlamak ve kendi cihazlarımızı tanıtmak.</p>
-            </div>
-
-            <div class="card">
-                <h3>Değerlerimiz</h3>
-                <p>Şeffaflık, yenilikçilik, ekip ruhu ve teknoloji odaklı büyüme.</p>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <i class="fas fa-rocket logo-icon"></i>
+                <span>TEMP</span>
+            </a>
+            
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Anasayfa</a></li>
+                <li><a href="#about" class="nav-link">Hakkımızda</a></li>
+                <li><a href="#features" class="nav-link">Hizmetler</a></li>
+                <li><a href="#learning" class="nav-link">Öğrenme Yolu</a></li>
+                <li><a href="#team" class="nav-link">Ekibimiz</a></li>
+                <li><a href="#faq" class="nav-link">SSS</a></li>
+                <li><a href="#contact" class="nav-link">İletişim</a></li>
+                <li><a href="#join" class="nav-link btn btn-primary" style="color: white;">Katıl</a></li>
+            </ul>
+            
+            <div class="nav-controls">
+                <button class="btn btn-icon" id="darkModeToggle" aria-label="Toggle dark mode" title="Koyu/Açık Mod">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="https://discord.gg/Yp3vbWwGF8" target="_blank" class="btn btn-primary" aria-label="Join Discord">
+                    <i class="fab fa-discord"></i> Discord
+                </a>
             </div>
         </div>
-    </section>
+    </nav>
 
-    <!-- HİZMETLER -->
-    <section id="hizmetler">
-        <h2>Hizmetlerimiz</h2>
-        <div class="cards">
-            <div class="card">
-                <h3>Kişiye özel WEB sitesi</h3>
-                <p>Gereksiz pahalı yabancı şirketlere para vermek yerine Yerli platformumuzu tercih ederek Hem uygun fiyatlı Hem de kaliteli bir ürüne sahip olabilirsiniz.</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">🚀 Yeni Nesil Teknoloji Platformu</span>
+                <h1 class="hero-title">Türkiye'nin <span class="gradient-text">Teknoloji & Girişimcilik</span> Ekosistemi</h1>
+                <p class="hero-description">
+                    TEMP, genç girişimcilere ve teknoloji meraklılarına web geliştirme, yazılım, dijital pazarlama ve proje yönetimi konularında eğitim, destek ve kaynak sağlayan bir platformdur.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#join" class="btn btn-primary">
+                        <i class="fas fa-user-plus"></i> Hemen Katıl
+                    </a>
+                    <a href="#features" class="btn btn-secondary">
+                        <i class="fas fa-play-circle"></i> Tanıtım Videosu
+                    </a>
+                </div>
+                <div class="mt-2">
+                    <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                        <div>
+                            <h3 style="color: var(--primary);">350+</h3>
+                            <p>Aktif Üye</p>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--secondary);">50+</h3>
+                            <p>Tamamlanan Proje</p>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--accent);">15+</h3>
+                            <p>Eğitim İçeriği</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="card">
-                <h3>Telefon Bilgisayar tabanlı programlar</h3>
-                <p>İstediğiniz uygulamalar Web tabanlı yazar kasa vb.</p>
-            </div>
-
-            <div class="card">
-                <h3>TEMPm ürünleri</h3>
-                <p>istediğiniz bir devre veya projeyi sizin yerinize gerçekleştiriyoruz</p>
-            </div>
-
-            <div class="card">
-                <h3>Yazılım ürün lisansları </h3>
-                <p>Pahalı yazılamlar yerine aynı ürünü daha uyguna alarak Hem cebinize hemde ülkemize katkı sağlıyabilirsiniz</p>
+            <div class="hero-visual">
+                <div class="floating-shape" style="font-size: 10rem; color: var(--primary); opacity: 0.1;">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- İSTATİSTİK -->
-    <section id="istatistik">
-        <h2>İstatistikler</h2>
-        <div class="stats">
-            <div class="stat">
-                <h3 id="stat-users">0</h3>
-                <p>Aktif Kullanıcı</p>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Hakkımızda</h2>
+                <p>TEMP olarak teknoloji ve girişimcilik ekosistemine değer katmayı hedefliyoruz</p>
             </div>
-            <div class="stat">
-                <h3 id="stat-team">0</h3>
-                <p>Ekip Üyesi</p>
-            </div>
-            <div class="stat">
-                <h3 id="stat-projects">0</h3>
-                <p>Tamamlanan Proje</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- EKİP -->
-    <section id="ekip">
-        <h2>Ekibimiz</h2>
-        <div class="team">
-            <div class="member">
-                <img src="https://i.pravatar.cc/150?img=1" alt="Bersi">
-                <h4>Bersi Akdağ</h4>
-                <p>Kurucu & Yönetici</p>
-            </div>
-            <div class="member">
-                <img src="https://i.pravatar.cc/150?img=11" alt="">
-                <h4>burda sizde olabilirsiniz</h4>
-                <p> burda sizde olabilirsiniz</p>
-            </div>
-            <div class="member">
-                <img src="https://i.pravatar.cc/150?img=22" alt="">
-                <h4>burda sizde olabilirsiniz</h4>
-                <p>burda sizde olabilirsiniz</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Misyonumuz</h3>
+                    <p>Türkiye'de teknoloji üretimini ve dijital dönüşümü hızlandırmak, genç yeteneklere kariyer fırsatları yaratmak.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Vizyonumuz</h3>
+                    <p>2025 yılına kadar 10.000+ gence ulaşarak Türkiye'nin önde gelen teknoloji topluluğu olmak.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Değerlerimiz</h3>
+                    <p>Şeffaflık, yenilikçilik, ekip çalışması, sürdürülebilirlik ve toplumsal katkı.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- SSS -->
-    <section id="sss">
-        <h2>Sık Sorulan Sorular</h2>
-
-        <div class="faq-item">
-            <div class="faq-q" data-open="false">TEMP ekibine nasıl katılırım?</div>
-            <div class="faq-a">Kayıt formunu doldurarak başvuru yapabilirsiniz.Formu geçenleri arıyoruz.</div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-q" data-open="false">Katılım ücreti var mı?</div>
-            <div class="faq-a">Hayır, tamamen ücretsizdir. Ama eyer TEMPm üyesi olmak istiyorsanız
-                yaptığımız malzeme harcamalarında beraber ödeme yapılacaktır.
+    <!-- Features Section -->
+    <section id="features" class="learning-path">
+        <div class="container">
+            <div class="section-header">
+                <h2>Neler Sunuyoruz?</h2>
+                <p>Kapsamlı eğitim ve destek hizmetlerimizle yanınızdayız</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Geliştirme</h3>
+                    <p>Modern web teknolojileri (HTML, CSS, JavaScript, React) eğitimleri ve proje desteği.</p>
+                    <ul style="margin-top: 1rem; color: var(--text-light);">
+                        <li>Responsive tasarım</li>
+                        <li>Frontend framework'ler</li>
+                        <li>Backend entegrasyonu</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobil Uygulama</h3>
+                    <p>iOS ve Android platformları için native ve cross-platform uygulama geliştirme.</p>
+                    <ul style="margin-top: 1rem; color: var(--text-light);">
+                        <li>React Native</li>
+                        <li>Flutter</li>
+                        <li>UI/UX tasarım</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Dijital Pazarlama</h3>
+                    <p>Sosyal medya, SEO, içerik pazarlama ve dijital strateji geliştirme eğitimleri.</p>
+                    <ul style="margin-top: 1rem; color: var(--text-light);">
+                        <li>SEO optimizasyonu</li>
+                        <li>Sosyal medya yönetimi</li>
+                        <li>Analitik ve raporlama</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Mentörlük Programı</h3>
+                    <p>Deneyimli profesyonellerden birebir mentörlük ve kariyer rehberliği.</p>
+                    <ul style="margin-top: 1rem; color: var(--text-light);">
+                        <li>Birebir seanslar</li>
+                        <li>Portfolyo incelemesi</li>
+                        <li>İş fırsatları</li>
+                    </ul>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="faq-item">
-            <div class="faq-q" data-open="false">Yaş sınırı var mı?</div>
-            <div class="faq-a">Minimum 14-15 yaş gereklidir.</div>
+    <!-- Learning Path Section -->
+    <section id="learning">
+        <div class="container">
+            <div class="section-header">
+                <h2>Öğrenme Yolunuz</h2>
+                <p>Adım adım gelişim yolculuğunuz</p>
+            </div>
+            <div class="path-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Temel Eğitim</h3>
+                        <p>HTML, CSS ve JavaScript temelleri. Responsive tasarım prensipleri ve modern CSS framework'leri.</p>
+                        <div class="mt-1">
+                            <span class="badge badge-primary">4 Hafta</span>
+                            <span class="badge badge-secondary">12 Ders</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>İleri Seviye Geliştirme</h3>
+                        <p>React, Vue.js gibi modern framework'ler. State management, API entegrasyonu ve testing.</p>
+                        <div class="mt-1">
+                            <span class="badge badge-primary">6 Hafta</span>
+                            <span class="badge badge-secondary">18 Ders</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Proje Geliştirme</h3>
+                        <p>Gerçek dünya projeleri. Takım çalışması, versiyon kontrolü (Git) ve deployment süreçleri.</p>
+                        <div class="mt-1">
+                            <span class="badge badge-primary">8 Hafta</span>
+                            <span class="badge badge-secondary">3 Proje</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Kariyer Hazırlığı</h3>
+                        <p>Portfolyo oluşturma, iş görüşmesi hazırlığı, LinkedIn optimizasyonu ve network geliştirme.</p>
+                        <div class="mt-1">
+                            <span class="badge badge-primary">2 Hafta</span>
+                            <span class="badge badge-secondary">5 Workshop</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- KAYIT OL SECTION -->
-    <section id="kayitol">
-        <h2>Ekibe Katıl</h2>
-
-        <div class="form-container">
-            <iframe 
-                src="https://docs.google.com/forms/d/e/1FAIpQLSe_rNNZEoioqbEQ6mn3YopGPBTD18CtZxaks-zhi0QRziHpbw/viewform?embedded=true"
-                title="TEMP Başvuru Formu">
-            </iframe>
+    <!-- Team Section -->
+    <section id="team">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ekibimiz</h2>
+                <p>Deneyimli ekibimizle tanışın</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="https://i.pravatar.cc/300?img=1" alt="Bersi Akdağ" class="team-avatar">
+                    <div class="team-info">
+                        <h3>Bersi Akdağ</h3>
+                        <p class="team-role">Kurucu & Yönetici</p>
+                        <p>10+ yıllık teknoloji ve girişimcilik deneyimi</p>
+                        <div class="team-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://i.pravatar.cc/300?img=11" alt="Ekip Üyesi" class="team-avatar">
+                    <div class="team-info">
+                        <h3>Burda Siz</h3>
+                        <p class="team-role">Geliştirici</p>
+                        <p>Frontend ve mobil uygulama geliştirme uzmanı</p>
+                        <div class="team-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://i.pravatar.cc/300?img=22" alt="Ekip Üyesi" class="team-avatar">
+                    <div class="team-info">
+                        <h3>Burda Siz</h3>
+                        <p class="team-role">Tasarımcı</p>
+                        <p>UI/UX tasarım ve kullanıcı deneyimi uzmanı</p>
+                        <div class="team-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- İLETİŞİM -->
-    <section id="iletisim">
-        <h2>İletişim</h2>
-        <p>Email: <b>akdagbersi@gmail.com</b></p>
-        <p>Instagram: <b>tekno.sohbet.tr</b></p>
+    <!-- FAQ Section -->
+    <section id="faq" class="learning-path">
+        <div class="container">
+            <div class="section-header">
+                <h2>Sık Sorulan Sorular</h2>
+                <p>Merak ettiğiniz soruların cevapları</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>TEMP ekibine nasıl katılırım?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Kayıt formunu doldurarak başvuru yapabilirsiniz. Formu geçen adayları mülakat için arıyoruz. Discord sunucumuza katılarak da süreç hakkında bilgi alabilirsiniz.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Katılım ücreti var mı?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Hayır, TEMP topluluğuna katılım tamamen ücretsizdir. Ancak TEMPm üyesi olmak istiyorsanız, malzeme harcamalarında ortak ödeme yapılması gerekmektedir.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Yaş sınırı var mı?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Minimum 14-15 yaş gereklidir. Ancak yetenek ve motivasyon düzeyine göre değerlendirme yapılmaktadır.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Ne tür projeler yapıyorsunuz?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Web siteleri, mobil uygulamalar, yazılım projeleri, donanım projeleri ve dijital pazarlama çözümleri üzerine çalışıyoruz.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
+    <!-- Join Section -->
+    <section id="join">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ekibe Katıl</h2>
+                <p>Başvuru formunu doldurarak süreci başlat</p>
+            </div>
+            <div class="form-container">
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSe_rNNZEoioqbEQ6mn3YopGPBTD18CtZxaks-zhi0QRziHpbw/viewform?embedded=true"
+                    title="TEMP Başvuru Formu"
+                    style="width: 100%; height: 800px; border: none; border-radius: var(--radius);"
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
 
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>İletişim</h2>
+                <p>Bize ulaşmak için aşağıdaki kanalları kullanabilirsiniz</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>akdagbersi@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div>
+                            <h3>Instagram</h3>
+                            <p>@tekno.sohbet.tr</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <div>
+                            <h3>Discord</h3>
+                            <p>https://discord.gg/Yp3vbWwGF8</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3>Forum</h3>
+                    <p>Forum sayfamıza göz atarak sorularınızı sorabilir ve toplulukla etkileşim kurabilirsiniz.</p>
+                    <a href="https://6924c32366d43.site123.me/#" target="_blank" class="btn btn-primary mt-2">
+                        <i class="fas fa-comments"></i> Forum'a Git
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-
-<!-- CANLI DESTEK -->
-<div class="support-btn">
-    <button id="supportToggle" title="Canlı Destek">💬</button>
-</div>
-
-<div class="chat-window" id="chatWindow" aria-hidden="true">
-    <div class="chat-header">TEMP Destek</div>
-    <div class="chat-body" id="chatBody">
-        <div>Merhaba! Size Nasıl yardımcı olabilirim?</div>
-    </div>
-    <div class="chat-input">
-        <input type="text" id="chatInput" placeholder="Mesaj yaz..." />
-        <button id="chatSend">Gönder</button>
-    </div>
-</div>
-
-    <!-- FOOTER -->
-    <footer>
-        © 2025 TEMP – Türkiye E-Mobil Pazarlama. Tüm Hakları Saklıdır.
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">
+                        <i class="fas fa-rocket"></i>
+                        <span>TEMP</span>
+                    </div>
+                    <p class="footer-description">
+                        Türkiye'nin lider teknoloji ve girişimcilik platformu. Genç yetenekleri geleceğe hazırlıyoruz.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Hızlı Bağlantılar</h4>
+                    <ul>
+                        <li><a href="#home">Anasayfa</a></li>
+                        <li><a href="#about">Hakkımızda</a></li>
+                        <li><a href="#features">Hizmetler</a></li>
+                        <li><a href="#learning">Öğrenme Yolu</a></li>
+                        <li><a href="#team">Ekibimiz</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Kaynaklar</h4>
+                    <ul>
+                        <li><a href="#faq">SSS</a></li>
+                        <li><a href="#join">Başvuru</a></li>
+                        <li><a href="#contact">İletişim</a></li>
+                        <li><a href="https://6924c32366d43.site123.me/#" target="_blank">Forum</a></li>
+                        <li><a href="https://discord.gg/Yp3vbWwGF8" target="_blank">Discord</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2025 TEMP – Türkiye E-Mobil Pazarlama. Tüm Hakları Saklıdır.
+            </div>
+        </div>
     </footer>
 
-    <!-- JS: NAV SCROLL EFFECT + DİĞER FONKSİYONLAR -->
-    <script>
-        // NAV SCROLL EFFECT
-        window.addEventListener("scroll", () => {
-            const nav = document.getElementById("navbar");
-            if(window.scrollY > 70) nav.classList.add("scrolled");
-            else nav.classList.remove("scrolled");
-        });
+    <!-- ===== GÖREV SİSTEMİ HTML ===== -->
+    <div class="task-system-overlay" id="taskOverlay"></div>
 
-        // DARK MODE
-        const darkToggle = document.getElementById('darkToggle');
-        darkToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark');
-            // değişimi localStorage'e kaydet
-            if(document.body.classList.contains('dark')) localStorage.setItem('temp-dark','1');
-            else localStorage.removeItem('temp-dark');
-        });
-        // başlangıçta localStorage'den oku
-        if(localStorage.getItem('temp-dark')) document.body.classList.add('dark');
-
-        // İSTATİSTİK SAYACI (Scroll ile tetiklenen basit sayaç)
-        const stats = [
-            { id: 'stat-users', target: 350 },
-            { id: 'stat-team', target: 2 },
-            { id: 'stat-projects', target: 1 }
-        ];
-        let statsStarted = false;
-        function startStats() {
-            if(statsStarted) return;
-            statsStarted = true;
-            stats.forEach(s => {
-                const el = document.getElementById(s.id);
-                if(!el) return;
-                let current = 0;
-                const step = Math.max(1, Math.floor(s.target / 120));
-                const interval = setInterval(() => {
-                    current += step;
-                    if(current >= s.target) {
-                        el.textContent = s.target;
-                        clearInterval(interval);
-                    } else {
-                        el.textContent = current;
-                    }
-                }, 15);
-            });
-        }
-        window.addEventListener('scroll', () => {
-            const statSection = document.getElementById('istatistik');
-            if(!statSection) return;
-            const rect = statSection.getBoundingClientRect();
-            if(rect.top < window.innerHeight - 100) startStats();
-        });
-
-        // SSS akordeon
-        document.querySelectorAll('.faq-q').forEach(q => {
-            q.addEventListener('click', () => {
-                const a = q.nextElementSibling;
-                if(!a) return;
-                if(a.style.display === 'block') {
-                    a.style.display = 'none';
-                    q.setAttribute('data-open','false');
-                } else {
-                    a.style.display = 'block';
-                    q.setAttribute('data-open','true');
-                }
-            });
-        });
-
+    <div class="task-system-wrapper" id="taskSystem">
+        <div class="task-header">
+            <h2><i class="fas fa-trophy"></i> Görev Sistemi</h2>
+            <button class="task-close-btn" id="taskCloseBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
         
+        <div class="task-tabs">
+            <button class="task-tab active" data-tab="tasks">
+                <i class="fas fa-tasks"></i> Görevler
+            </button>
+            <button class="task-tab" data-tab="achievements">
+                <i class="fas fa-medal"></i> Başarımlar
+            </button>
+            <button class="task-tab" data-tab="leaderboard">
+                <i class="fas fa-crown"></i> Sıralama
+            </button>
+            <button class="task-tab" data-tab="rewards">
+                <i class="fas fa-gift"></i> Ödüller
+            </button>
+        </div>
+        
+        <div class="task-content">
+            <!-- GÖREVLER TAB -->
+            <div class="task-tab-content active" id="tasks-tab">
+                <div class="task-stats-bar">
+                    <div class="task-stat">
+                        <div class="task-stat-value" id="statXP">0</div>
+                        <div class="task-stat-label">Toplam XP</div>
+                    </div>
+                    <div class="task-stat">
+                        <div class="task-stat-value" id="statLevel">1</div>
+                        <div class="task-stat-label">Seviye</div>
+                    </div>
+                    <div class="task-stat">
+                        <div class="task-stat-value" id="statStreak">0</div>
+                        <div class="task-stat-label">Streak</div>
+                    </div>
+                    <div class="task-stat">
+                        <div class="task-stat-value" id="statCompleted">0</div>
+                        <div class="task-stat-label">Tamamlanan</div>
+                    </div>
+                </div>
+                
+                <div class="task-level-container">
+                    <div class="task-level-header">
+                        <div class="task-level-title">
+                            <i class="fas fa-chart-line"></i> İlerleme
+                        </div>
+                        <div class="task-level-badge" id="levelBadge">Seviye 1</div>
+                    </div>
+                    <div class="task-level-progress">
+                        <div class="task-level-text">
+                            <span id="currentXPText">0 XP</span>
+                            <span id="nextLevelXPText">100 XP</span>
+                        </div>
+                        <div class="task-level-bar">
+                            <div class="task-level-fill" id="levelFill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="daily-tasks">
+                    <div class="daily-tasks-header">
+                        <div class="daily-tasks-title">
+                            <i class="fas fa-calendar-day"></i> Günlük Görevler
+                        </div>
+                        <div class="daily-streak">
+                            <i class="fas fa-fire"></i> <span id="streakCount">0</span> gün
+                        </div>
+                    </div>
+                    <div id="dailyTasksList"></div>
+                </div>
+                
+                <div id="tasksList"></div>
+            </div>
+            
+            <!-- BAŞARIMLAR TAB -->
+            <div class="task-tab-content" id="achievements-tab">
+                <div class="achievements-grid" id="achievementsGrid"></div>
+            </div>
+            
+            <!-- SIRALAMA TAB -->
+            <div class="task-tab-content" id="leaderboard-tab">
+                <div class="leaderboard-list" id="leaderboardList">
+                    <!-- Dinamik olarak yüklenecek -->
+                </div>
+            </div>
+            
+            <!-- ÖDÜLLER TAB -->
+            <div class="task-tab-content" id="rewards-tab">
+                <div class="rewards-grid" id="rewardsGrid"></div>
+            </div>
+        </div>
+    </div>
 
-        // CANLI DESTEK (basit frontend simülasyonu)
-        const supportToggle = document.getElementById('supportToggle');
-        const chatWindow = document.getElementById('chatWindow');
+    <button class="task-toggle-btn" id="taskToggleBtn" title="Görev Sistemi">
+        <i class="fas fa-trophy"></i>
+        <span class="task-toggle-badge" id="taskToggleBadge">0</span>
+    </button>
+
+    <!-- ===== NOTIFICATION SYSTEM HTML ===== -->
+    <div id="notification-container" class="notification-container"></div>
+
+    <button class="notification-bell" id="notificationBell" title="Bildirim Ayarları">
+        <i class="fas fa-bell"></i>
+    </button>
+
+    <div class="notification-settings" id="notificationSettings">
+        <h4>Bildirim Ayarları</h4>
+        <div class="setting-item">
+            <span class="setting-label">Sistem Bildirimleri</span>
+            <label class="switch">
+                <input type="checkbox" id="systemNotifications" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="setting-item">
+            <span class="setting-label">Eğitim Hatırlatmaları</span>
+            <label class="switch">
+                <input type="checkbox" id="educationReminders" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="setting-item">
+            <span class="setting-label">Güncelleme Duyuruları</span>
+            <label class="switch">
+                <input type="checkbox" id="updateAnnouncements" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="setting-item">
+            <span class="setting-label">Özel Teklifler</span>
+            <label class="switch">
+                <input type="checkbox" id="specialOffers" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+        <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" onclick="testNotification()">
+            Bildirim Testi
+        </button>
+    </div>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <button class="chat-toggle" id="chatToggle" aria-label="Open chat">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <span>TEMP Destek</span>
+                <button class="chat-close" id="chatClose" aria-label="Close chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    Merhaba! TEMP Destek'e hoş geldiniz. Size nasıl yardımcı olabilirim?
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Mesajınızı yazın..." aria-label="Chat message">
+                <button id="chatSend" aria-label="Send message">Gönder</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Google Translate
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'tr',
+                includedLanguages: 'tr,ar,en,ru,es,ku,zh-CN',
+                autoDisplay: false,
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+        
+        // DOM Elements
+        const navbar = document.getElementById('navbar');
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const backToTop = document.getElementById('backToTop');
+        const chatToggle = document.getElementById('chatToggle');
+        const chatBox = document.getElementById('chatBox');
+        const chatClose = document.getElementById('chatClose');
         const chatSend = document.getElementById('chatSend');
         const chatInput = document.getElementById('chatInput');
-        const chatBody = document.getElementById('chatBody');
-
-        supportToggle.addEventListener('click', () => {
-            const shown = chatWindow.style.display === 'block';
-            chatWindow.style.display = shown ? 'none' : 'block';
-            chatWindow.setAttribute('aria-hidden', shown ? 'true' : 'false');
-        });
-
-        chatSend.addEventListener('click', () => {
-            const msg = chatInput.value.trim();
-            if(!msg) return;
-            const p = document.createElement('div');
-            p.style.margin = '8px 0';
-            p.style.textAlign = 'right';
-            p.textContent = 'Siz: ' + msg;
-            chatBody.appendChild(p);
-            chatInput.value = '';
-
-            // basit otomatik cevap (sunucu entegrasyonun yoksa bu kalsın)
-            setTimeout(()=> {
-                const bot = document.createElement('div');
-                bot.style.margin = '8px 0';
-                bot.textContent = 'TEMP: Teşekkürler, talebiniz alındı. En kısa sürede dönüş yapılacaktır. Dilerseniz temp-turkiyee hesabınadn yazark anında dönüş alabilirsiniz';
-                chatBody.appendChild(bot);
-                chatBody.scrollTop = chatBody.scrollHeight;
-            }, 900);
-        });
-
-        // Enter ile gönder
-        chatInput.addEventListener('keydown', (e) => {
-            if(e.key === 'Enter') {
-                e.preventDefault();
-                chatSend.click();
+        const chatMessages = document.getElementById('chatMessages');
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
+            
+            // Back to Top Button
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+            
+            // Update active nav link
+            updateActiveNavLink();
         });
+        
+        // Mobile Menu Toggle
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileToggle.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Dark Mode Toggle
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('temp-dark-mode', isDark ? 'enabled' : 'disabled');
+            darkModeToggle.innerHTML = isDark 
+                ? '<i class="fas fa-sun"></i>' 
+                : '<i class="fas fa-moon"></i>';
+        });
+        
+        // Load dark mode preference
+        if (localStorage.getItem('temp-dark-mode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+        
+        // Back to Top
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // FAQ Accordion
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Chat Widget
+        chatToggle.addEventListener('click', () => {
+            chatBox.classList.add('active');
+        });
+        
+        chatClose.addEventListener('click', () => {
+            chatBox.classList.remove('active');
+        });
+        
+        chatSend.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+        
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
+            
+            // Add user message
+            const userMessage = document.createElement('div');
+            userMessage.className = 'message user';
+            userMessage.textContent = message;
+            chatMessages.appendChild(userMessage);
+            
+            // Clear input
+            chatInput.value = '';
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Simulate bot response
+            setTimeout(() => {
+                const botMessage = document.createElement('div');
+                botMessage.className = 'message bot';
+                
+                // Simple bot responses
+                const responses = [
+                    "Teşekkürler! Talebiniz alındı. En kısa sürede size dönüş yapacağız.",
+                    "Anladım. Discord sunucumuza katılarak daha hızlı destek alabilirsiniz: https://discord.gg/Yp3vbWwGF8",
+                    "Bu konuda ekibimizden biriyle sizi iletişime geçirelim. Email adresinizi bırakabilir misiniz?",
+                    "Sorunuz için teşekkür ederiz. FAQ bölümümüze göz atmanızı öneririz."
+                ];
+                
+                botMessage.textContent = responses[Math.floor(Math.random() * responses.length)];
+                chatMessages.appendChild(botMessage);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 1000);
+        }
+        
+        // Update active nav link based on scroll position
+        function updateActiveNavLink() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPos = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+        
+        // Animated counters for stats
+        function animateCounter(element, target, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+        
+        // Initialize counters when section is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const stats = document.querySelectorAll('.stats-grid h3');
+                    stats.forEach(stat => {
+                        const target = parseInt(stat.textContent);
+                        if (!isNaN(target)) {
+                            animateCounter(stat, target);
+                        }
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        // Observe stats section
+        const statsSection = document.querySelector('.hero');
+        if (statsSection) observer.observe(statsSection);
+        
+        // Initialize
+        updateActiveNavLink();
 
-       
+        // ===== GÖREV SİSTEMİ JAVASCRIPT =====
+        // TAM ENTEGRE GÖREV SİSTEMİ
+        class IntegratedTaskSystem {
+            constructor() {
+                this.tasks = [];
+                this.dailyTasks = [];
+                this.achievements = [];
+                this.rewards = [];
+                this.leaderboard = [];
+                this.completedTasks = new Set();
+                this.unlockedAchievements = new Set();
+                this.purchasedRewards = new Set();
+                this.userStats = {
+                    xp: 0,
+                    level: 1,
+                    streak: 0,
+                    coins: 100,
+                    lastLogin: null
+                };
+                
+                this.init();
+            }
+            
+            init() {
+                // Verileri yükle
+                this.loadUserStats();
+                this.loadTasks();
+                this.loadDailyTasks();
+                this.loadAchievements();
+                this.loadRewards();
+                this.loadLeaderboard();
+                
+                // UI'yı başlat
+                this.initUI();
+                
+                // Event listener'ları kur
+                this.setupEventListeners();
+                
+                // Otomatik görev takibi
+                this.setupAutoTracking();
+                
+                // Güncelleme
+                this.updateUI();
+                
+                // Hoş geldin bildirimi
+                setTimeout(() => {
+                    this.showWelcomeNotification();
+                }, 2000);
+            }
+            
+            initUI() {
+                // Tab geçişleri
+                document.querySelectorAll('.task-tab').forEach(tab => {
+                    tab.addEventListener('click', (e) => {
+                        const tabId = e.target.dataset.tab;
+                        this.switchTab(tabId);
+                    });
+                });
+                
+                // Overlay kapatma
+                document.getElementById('taskOverlay').addEventListener('click', () => {
+                    this.closeTaskSystem();
+                });
+                
+                // Kapatma butonu
+                document.getElementById('taskCloseBtn').addEventListener('click', () => {
+                    this.closeTaskSystem();
+                });
+                
+                // Toggle butonu
+                document.getElementById('taskToggleBtn').addEventListener('click', () => {
+                    this.toggleTaskSystem();
+                });
+                
+                // Sayfa yüklendiğinde açık mı kontrol et
+                if (localStorage.getItem('taskSystemOpen') === 'true') {
+                    setTimeout(() => this.openTaskSystem(), 500);
+                }
+            }
+            
+            setupEventListeners() {
+                // Discord bağlantısı
+                document.addEventListener('click', (e) => {
+                    const discordLink = e.target.closest('a[href*="discord"]');
+                    if (discordLink) {
+                        setTimeout(() => {
+                            this.completeTask('join_discord');
+                        }, 1000);
+                    }
+                });
+                
+                // Form gönderimi
+                const formFrame = document.querySelector('iframe[src*="google.com/forms"]');
+                if (formFrame) {
+                    formFrame.addEventListener('load', () => {
+                        // Form yüklendiğinde görevi tamamla
+                        this.completeTask('complete_form');
+                    });
+                }
+                
+                // Scroll takibi
+                let sectionsTracked = new Set();
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !sectionsTracked.has(entry.target.id)) {
+                            sectionsTracked.add(entry.target.id);
+                            
+                            const sectionTasks = {
+                                'home': 'explore_home',
+                                'about': 'read_about',
+                                'features': 'view_services',
+                                'learning': 'view_learning_path',
+                                'team': 'view_team',
+                                'faq': 'read_faq',
+                                'join': 'view_join_form',
+                                'contact': 'view_contact'
+                            };
+                            
+                            const taskId = sectionTasks[entry.target.id];
+                            if (taskId) {
+                                this.completeTask(taskId);
+                            }
+                        }
+                    });
+                }, { threshold: 0.3 });
+                
+                // Tüm section'ları gözlemle
+                ['home', 'about', 'features', 'learning', 'team', 'faq', 'join', 'contact']
+                    .forEach(id => {
+                        const section = document.getElementById(id);
+                        if (section) observer.observe(section);
+                    });
+                
+                // Dark mode değişikliği
+                const darkModeToggle = document.getElementById('darkModeToggle');
+                if (darkModeToggle) {
+                    darkModeToggle.addEventListener('click', () => {
+                        setTimeout(() => {
+                            this.completeTask('toggle_dark_mode');
+                        }, 500);
+                    });
+                }
+                
+                // Chat kullanımı
+                const chatSend = document.getElementById('chatSend');
+                if (chatSend) {
+                    chatSend.addEventListener('click', () => {
+                        this.completeTask('use_chat');
+                    });
+                }
+            }
+            
+            setupAutoTracking() {
+                // İlk ziyaret
+                if (!localStorage.getItem('first_visit')) {
+                    localStorage.setItem('first_visit', new Date().toISOString());
+                    this.completeTask('first_visit');
+                }
+                
+                // Günlük giriş
+                const today = new Date().toDateString();
+                const lastLogin = localStorage.getItem('last_login');
+                
+                if (lastLogin !== today) {
+                    // Streak hesapla
+                    if (lastLogin) {
+                        const lastDate = new Date(lastLogin);
+                        const diffTime = Math.abs(new Date() - lastDate);
+                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                        
+                        if (diffDays === 1) {
+                            // Ardışık giriş
+                            this.userStats.streak++;
+                            this.completeTask('daily_login');
+                        } else if (diffDays > 1) {
+                            // Streak kırıldı
+                            this.userStats.streak = 1;
+                            if (notificationSystem) {
+                                notificationSystem.warning('Streak Kırıldı', 'Dün giriş yapmadığınız için streak sıfırlandı.');
+                            }
+                        }
+                    } else {
+                        // İlk giriş
+                        this.userStats.streak = 1;
+                    }
+                    
+                    localStorage.setItem('last_login', today);
+                    this.saveUserStats();
+                    this.updateUI();
+                }
+                
+                // Sayfada geçirilen süre
+                let timeOnSite = 0;
+                const timeInterval = setInterval(() => {
+                    timeOnSite += 5;
+                    localStorage.setItem('time_on_site', timeOnSite.toString());
+                    
+                    // Süre bazlı görevler
+                    if (timeOnSite === 30) this.completeTask('30_seconds');
+                    if (timeOnSite === 60) this.completeTask('1_minute');
+                    if (timeOnSite === 300) this.completeTask('5_minutes');
+                }, 5000);
+                
+                // Sayfa kapanırken temizle
+                window.addEventListener('beforeunload', () => {
+                    clearInterval(timeInterval);
+                });
+            }
+            
+            loadUserStats() {
+                const saved = localStorage.getItem('taskSystem_stats');
+                if (saved) {
+                    this.userStats = JSON.parse(saved);
+                }
+                
+                // Seviye hesapla
+                this.userStats.level = Math.floor(this.userStats.xp / 100) + 1;
+            }
+            
+            saveUserStats() {
+                localStorage.setItem('taskSystem_stats', JSON.stringify(this.userStats));
+            }
+            
+            loadTasks() {
+                this.tasks = [
+                    {
+                        id: 'first_visit',
+                        title: 'İlk Ziyaret',
+                        description: 'TEMP sitesini ilk kez ziyaret et',
+                        category: 'başlangıç',
+                        reward: 10,
+                        icon: '🚀',
+                        requiredLevel: 1
+                    },
+                    {
+                        id: 'explore_home',
+                        title: 'Ana Sayfayı Keşfet',
+                        description: 'Ana sayfadaki tüm içeriği incele',
+                        category: 'keşif',
+                        reward: 15,
+                        icon: '🏠',
+                        requiredLevel: 1
+                    },
+                    {
+                        id: 'join_discord',
+                        title: 'Discord\'a Katıl',
+                        description: 'Topluluğumuza katılarak sosyalleş',
+                        category: 'sosyal',
+                        reward: 25,
+                        icon: '🎮',
+                        requiredLevel: 1
+                    },
+                    {
+                        id: 'read_about',
+                        title: 'Hakkımızda Oku',
+                        description: 'Misyon ve vizyonumuzu öğren',
+                        category: 'bilgi',
+                        reward: 15,
+                        icon: '📖',
+                        requiredLevel: 1
+                    },
+                    {
+                        id: 'view_services',
+                        title: 'Hizmetleri İncele',
+                        description: 'Sunulan hizmetleri detaylı incele',
+                        category: 'keşif',
+                        reward: 20,
+                        icon: '🔧',
+                        requiredLevel: 1
+                    },
+                    {
+                        id: 'toggle_dark_mode',
+                        title: 'Dark Mode Deneyimi',
+                        description: 'Koyu modu aç/kapat yap',
+                        category: 'deneyim',
+                        reward: 10,
+                        icon: '🌙',
+                        requiredLevel: 1
+                    },
+                    {
+                        id: 'use_chat',
+                        title: 'Canlı Destek Kullan',
+                        description: 'Canlı desteğe mesaj gönder',
+                        category: 'iletişim',
+                        reward: 15,
+                        icon: '💬',
+                        requiredLevel: 1
+                    },
+                    {
+                        id: '30_seconds',
+                        title: '30 Saniye Kal',
+                        description: 'Sitede 30 saniye zaman geçir',
+                        category: 'etkileşim',
+                        reward: 5,
+                        icon: '⏱️',
+                        requiredLevel: 1
+                    },
+                    {
+                        id: 'complete_form',
+                        title: 'Başvuru Formunu Gör',
+                        description: 'Katılım formunu görüntüle',
+                        category: 'katılım',
+                        reward: 20,
+                        icon: '📝',
+                        requiredLevel: 1
+                    },
+                    {
+                        id: 'view_team',
+                        title: 'Ekibi Tanı',
+                        description: 'Ekibimiz bölümünü ziyaret et',
+                        category: 'keşif',
+                        reward: 15,
+                        icon: '👥',
+                        requiredLevel: 1
+                    }
+                ];
+                
+                // Tamamlanan görevleri yükle
+                const completed = localStorage.getItem('taskSystem_completed');
+                if (completed) {
+                    this.completedTasks = new Set(JSON.parse(completed));
+                }
+            }
+            
+            loadDailyTasks() {
+                const today = new Date().toDateString();
+                const lastReset = localStorage.getItem('daily_tasks_reset');
+                
+                if (lastReset !== today) {
+                    // Yeni günlük görevler
+                    this.dailyTasks = [
+                        {
+                            id: 'daily_login',
+                            title: 'Günlük Giriş',
+                            description: 'Siteye günlük ziyaret yap',
+                            reward: 5,
+                            icon: '📅',
+                            completed: false
+                        },
+                        {
+                            id: 'daily_explore',
+                            title: 'Günlük Keşif',
+                            description: '2 farklı sayfayı ziyaret et',
+                            reward: 10,
+                            icon: '🔍',
+                            completed: false
+                        },
+                        {
+                            id: 'daily_interaction',
+                            title: 'Günlük Etkileşim',
+                            description: 'Bir butona tıkla veya form gör',
+                            reward: 15,
+                            icon: '👆',
+                            completed: false
+                        }
+                    ];
+                    
+                    localStorage.setItem('daily_tasks', JSON.stringify(this.dailyTasks));
+                    localStorage.setItem('daily_tasks_reset', today);
+                } else {
+                    // Kayıtlı görevleri yükle
+                    const saved = localStorage.getItem('daily_tasks');
+                    if (saved) {
+                        this.dailyTasks = JSON.parse(saved);
+                    }
+                }
+            }
+            
+            loadAchievements() {
+                this.achievements = [
+                    {
+                        id: 'ach_explorer',
+                        title: 'Kaşif',
+                        description: '5 farklı sayfayı ziyaret et',
+                        icon: '🧭',
+                        reward: 50,
+                        condition: () => {
+                            const visited = JSON.parse(localStorage.getItem('visited_pages') || '[]');
+                            return visited.length >= 5;
+                        }
+                    },
+                    {
+                        id: 'ach_socializer',
+                        title: 'Sosyal Kelebek',
+                        description: 'Tüm sosyal görevleri tamamla',
+                        icon: '🦋',
+                        reward: 75,
+                        condition: () => {
+                            const socialTasks = ['join_discord', 'use_chat'];
+                            return socialTasks.every(task => this.completedTasks.has(task));
+                        }
+                    },
+                    {
+                        id: 'ach_learner',
+                        title: 'Öğrenme Tutkunu',
+                        description: '10 görev tamamla',
+                        icon: '📚',
+                        reward: 100,
+                        condition: () => this.completedTasks.size >= 10
+                    },
+                    {
+                        id: 'ach_champion',
+                        title: 'Şampiyon',
+                        description: 'Seviye 5\'e ulaş',
+                        icon: '🏆',
+                        reward: 200,
+                        condition: () => this.userStats.level >= 5
+                    },
+                    {
+                        id: 'ach_dedicated',
+                        title: 'Adanmış',
+                        description: '7 günlük streak yap',
+                        icon: '🔥',
+                        reward: 150,
+                        condition: () => this.userStats.streak >= 7
+                    },
+                    {
+                        id: 'ach_collector',
+                        title: 'Koleksiyoncu',
+                        description: 'Tüm başarımları topla',
+                        icon: '⭐',
+                        reward: 500,
+                        condition: () => this.unlockedAchievements.size === this.achievements.length
+                    }
+                ];
+                
+                // Açılan başarımları yükle
+                const unlocked = localStorage.getItem('taskSystem_achievements');
+                if (unlocked) {
+                    this.unlockedAchievements = new Set(JSON.parse(unlocked));
+                }
+            }
+            
+            loadRewards() {
+                this.rewards = [
+                    {
+                        id: 'reward_badge',
+                        title: 'Özel Rozet',
+                        description: 'Profilinde görünecek özel rozet',
+                        icon: '🛡️',
+                        price: 100,
+                        levelRequired: 2
+                    },
+                    {
+                        id: 'reward_theme',
+                        title: 'Özel Tema',
+                        description: 'Site için özel renk teması',
+                        icon: '🎨',
+                        price: 250,
+                        levelRequired: 3
+                    },
+                    {
+                        id: 'reward_title',
+                        title: 'Özel Unvan',
+                        description: 'Profilinde görünecek özel unvan',
+                        icon: '👑',
+                        price: 500,
+                        levelRequired: 4
+                    },
+                    {
+                        id: 'reward_certificate',
+                        title: 'Sertifika',
+                        description: 'TEMP katılım sertifikası',
+                        icon: '📜',
+                        price: 1000,
+                        levelRequired: 5
+                    }
+                ];
+                
+                // Satın alınan ödülleri yükle
+                const purchased = localStorage.getItem('taskSystem_rewards');
+                if (purchased) {
+                    this.purchasedRewards = new Set(JSON.parse(purchased));
+                }
+            }
+            
+            loadLeaderboard() {
+                // Örnek liderlik tablosu (gerçek uygulamada backend'den gelir)
+                this.leaderboard = [
+                    { id: 1, name: 'Bersi Akdağ', xp: 1250, level: 13, avatar: 'https://i.pravatar.cc/150?img=1' },
+                    { id: 2, name: 'Ahmet Yılmaz', xp: 980, level: 10, avatar: 'https://i.pravatar.cc/150?img=2' },
+                    { id: 3, name: 'Ayşe Demir', xp: 850, level: 9, avatar: 'https://i.pravatar.cc/150?img=3' },
+                    { id: 4, name: 'Mehmet Kaya', xp: 720, level: 8, avatar: 'https://i.pravatar.cc/150?img=4' },
+                    { id: 5, name: 'Zeynep Şahin', xp: 650, level: 7, avatar: 'https://i.pravatar.cc/150?img=5' },
+                    { id: 6, name: 'Can Öztürk', xp: 580, level: 6, avatar: 'https://i.pravatar.cc/150?img=6' },
+                    { id: 7, name: 'Elif Arslan', xp: 520, level: 6, avatar: 'https://i.pravatar.cc/150?img=7' },
+                    { id: 8, name: 'Deniz Çelik', xp: 480, level: 5, avatar: 'https://i.pravatar.cc/150?img=8' },
+                    { id: 9, name: 'Selin Yıldız', xp: 420, level: 5, avatar: 'https://i.pravatar.cc/150?img=9' },
+                    { id: 10, name: 'Emre Koç', xp: 380, level: 4, avatar: 'https://i.pravatar.cc/150?img=10' }
+                ];
+                
+                // Kullanıcıyı ekle (eğer yoksa)
+                const userInLeaderboard = this.leaderboard.find(u => u.name === 'Siz');
+                if (!userInLeaderboard) {
+                    this.leaderboard.push({
+                        id: 999,
+                        name: 'Siz',
+                        xp: this.userStats.xp,
+                        level: this.userStats.level,
+                        avatar: 'https://i.pravatar.cc/150?img=11'
+                    });
+                }
+                
+                // XP'ye göre sırala
+                this.leaderboard.sort((a, b) => b.xp - a.xp);
+            }
+            
+            switchTab(tabId) {
+                // Aktif tab'ı kaldır
+                document.querySelectorAll('.task-tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                document.querySelectorAll('.task-tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Yeni tab'ı aktif yap
+                document.querySelector(`.task-tab[data-tab="${tabId}"]`).classList.add('active');
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+                
+                // Tab içeriğini güncelle
+                if (tabId === 'tasks') {
+                    this.renderTasks();
+                    this.renderDailyTasks();
+                } else if (tabId === 'achievements') {
+                    this.renderAchievements();
+                } else if (tabId === 'leaderboard') {
+                    this.renderLeaderboard();
+                } else if (tabId === 'rewards') {
+                    this.renderRewards();
+                }
+            }
+            
+            renderTasks() {
+                const container = document.getElementById('tasksList');
+                if (!container) return;
+                
+                // Kategorilere göre grupla
+                const categories = {};
+                this.tasks.forEach(task => {
+                    if (!categories[task.category]) {
+                        categories[task.category] = [];
+                    }
+                    categories[task.category].push(task);
+                });
+                
+                let html = '';
+                
+                Object.entries(categories).forEach(([category, tasks]) => {
+                    const completedInCategory = tasks.filter(t => this.completedTasks.has(t.id)).length;
+                    const totalInCategory = tasks.length;
+                    
+                    // Türkçe kategori isimleri
+                    const categoryNames = {
+                        'başlangıç': '🎯 Başlangıç',
+                        'keşif': '🔍 Keşif', 
+                        'sosyal': '👥 Sosyal',
+                        'bilgi': '📚 Bilgi',
+                        'deneyim': '✨ Deneyim',
+                        'iletişim': '💬 İletişim',
+                        'etkileşim': '🔄 Etkileşim',
+                        'katılım': '🎪 Katılım'
+                    };
+                    
+                    html += `
+                        <div class="task-category">
+                            <div class="task-category-header">
+                                <div class="task-category-title">
+                                    ${categoryNames[category] || category}
+                                </div>
+                                <div class="task-category-count">
+                                    ${completedInCategory}/${totalInCategory}
+                                </div>
+                            </div>
+                    `;
+                    
+                    tasks.forEach(task => {
+                        const isCompleted = this.completedTasks.has(task.id);
+                        const isLocked = task.requiredLevel > this.userStats.level;
+                        
+                        html += `
+                            <div class="task-item ${isCompleted ? 'completed' : ''} ${isLocked ? 'locked' : ''}" 
+                                 data-task-id="${task.id}">
+                                <div class="task-checkbox ${isCompleted ? 'checked' : ''} ${isLocked ? 'locked' : ''}"
+                                     onclick="taskSystem.completeTask('${task.id}')">
+                                </div>
+                                <div class="task-info">
+                                    <div class="task-title">
+                                        <span>${task.icon}</span>
+                                        ${task.title}
+                                    </div>
+                                    <div class="task-description">
+                                        ${task.description}
+                                        ${isLocked ? `<br><small>Seviye ${task.requiredLevel} gerekiyor</small>` : ''}
+                                    </div>
+                                </div>
+                                <div class="task-reward">
+                                    <i class="fas fa-bolt"></i> ${task.reward}
+                                </div>
+                            </div>
+                        `;
+                    });
+                    
+                    html += `</div>`;
+                });
+                
+                container.innerHTML = html;
+            }
+            
+            renderDailyTasks() {
+                const container = document.getElementById('dailyTasksList');
+                if (!container) return;
+                
+                let html = '';
+                
+                this.dailyTasks.forEach(task => {
+                    html += `
+                        <div class="task-item ${task.completed ? 'completed' : ''}" 
+                             data-task-id="${task.id}">
+                            <div class="task-checkbox ${task.completed ? 'checked' : ''}"
+                                 onclick="taskSystem.completeDailyTask('${task.id}')">
+                            </div>
+                            <div class="task-info">
+                                <div class="task-title">
+                                    <span>${task.icon}</span>
+                                    ${task.title}
+                                </div>
+                                <div class="task-description">${task.description}</div>
+                            </div>
+                            <div class="task-reward">
+                                <i class="fas fa-bolt"></i> ${task.reward}
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+                document.getElementById('streakCount').textContent = this.userStats.streak;
+            }
+            
+            renderAchievements() {
+                const container = document.getElementById('achievementsGrid');
+                if (!container) return;
+                
+                let html = '';
+                
+                this.achievements.forEach(achievement => {
+                    const isUnlocked = this.unlockedAchievements.has(achievement.id);
+                    const canUnlock = !isUnlocked && achievement.condition();
+                    
+                    html += `
+                        <div class="achievement-card ${isUnlocked ? 'unlocked' : 'locked'} ${canUnlock ? 'can-unlock' : ''}"
+                             onclick="${canUnlock ? `taskSystem.unlockAchievement('${achievement.id}')` : ''}">
+                            <div class="achievement-icon">${achievement.icon}</div>
+                            <div class="achievement-title">${achievement.title}</div>
+                            <div class="achievement-desc">${achievement.description}</div>
+                            <div class="achievement-reward">
+                                <i class="fas fa-bolt"></i> ${achievement.reward} XP
+                            </div>
+                            ${isUnlocked ? '<div style="position: absolute; top: 5px; right: 5px; color: gold;">✓</div>' : ''}
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+            }
+            
+            renderLeaderboard() {
+                const container = document.getElementById('leaderboardList');
+                if (!container) return;
+                
+                let html = '';
+                
+                this.leaderboard.forEach((user, index) => {
+                    const rank = index + 1;
+                    const rankClass = rank === 1 ? 'leaderboard-rank-1' : 
+                                    rank === 2 ? 'leaderboard-rank-2' : 
+                                    rank === 3 ? 'leaderboard-rank-3' : 'leaderboard-rank-other';
+                    
+                    const isCurrentUser = user.name === 'Siz';
+                    
+                    html += `
+                        <div class="leaderboard-item ${isCurrentUser ? 'current-user' : ''}">
+                            <div class="leaderboard-rank ${rankClass}">${rank}</div>
+                            <div class="leaderboard-user">
+                                <img src="${user.avatar}" alt="${user.name}" class="leaderboard-avatar">
+                                <div class="leaderboard-info">
+                                    <div class="leaderboard-name">${user.name}</div>
+                                    <div class="leaderboard-level">Seviye ${user.level}</div>
+                                </div>
+                            </div>
+                            <div class="leaderboard-xp">${user.xp} XP</div>
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+            }
+            
+            renderRewards() {
+                const container = document.getElementById('rewardsGrid');
+                if (!container) return;
+                
+                let html = '';
+                
+                this.rewards.forEach(reward => {
+                    const isPurchased = this.purchasedRewards.has(reward.id);
+                    const canPurchase = !isPurchased && 
+                                      this.userStats.level >= reward.levelRequired && 
+                                      this.userStats.coins >= reward.price;
+                    
+                    html += `
+                        <div class="reward-card ${isPurchased ? 'purchased' : ''} ${!canPurchase && !isPurchased ? 'locked' : ''}">
+                            <div class="reward-icon">${reward.icon}</div>
+                            <div class="reward-title">${reward.title}</div>
+                            <div class="reward-desc">${reward.description}</div>
+                            <div class="reward-price ${canPurchase ? '' : 'locked'}"
+                                 onclick="${canPurchase ? `taskSystem.purchaseReward('${reward.id}')` : ''}">
+                                ${isPurchased ? 'SATIN ALINDI' : `${reward.price} Jeton`}
+                            </div>
+                            ${reward.levelRequired > 1 && !isPurchased ? 
+                              `<div style="font-size: 0.7rem; color: var(--text-light); margin-top: 0.5rem;">
+                                Seviye ${reward.levelRequired} gerekiyor
+                              </div>` : ''}
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+            }
+            
+            updateUI() {
+                // İstatistikleri güncelle
+                document.getElementById('statXP').textContent = this.userStats.xp;
+                document.getElementById('statLevel').textContent = this.userStats.level;
+                document.getElementById('statStreak').textContent = this.userStats.streak;
+                document.getElementById('statCompleted').textContent = this.completedTasks.size;
+                
+                // Seviye ilerlemesi
+                const currentLevelXP = (this.userStats.level - 1) * 100;
+                const nextLevelXP = this.userStats.level * 100;
+                const xpInCurrentLevel = this.userStats.xp - currentLevelXP;
+                const progress = (xpInCurrentLevel / 100) * 100;
+                
+                document.getElementById('levelBadge').textContent = `Seviye ${this.userStats.level}`;
+                document.getElementById('currentXPText').textContent = `${this.userStats.xp} XP`;
+                document.getElementById('nextLevelXPText').textContent = `${nextLevelXP} XP`;
+                document.getElementById('levelFill').style.width = `${progress}%`;
+                
+                // Badge güncelle
+                const incompleteTasks = this.tasks.length - this.completedTasks.size;
+                const badge = document.getElementById('taskToggleBadge');
+                badge.textContent = incompleteTasks > 0 ? incompleteTasks : '';
+                badge.style.display = incompleteTasks > 0 ? 'flex' : 'none';
+                
+                // Başarımları kontrol et
+                this.checkAchievements();
+            }
+            
+            completeTask(taskId) {
+                const task = this.tasks.find(t => t.id === taskId);
+                if (!task) return;
+                
+                // Kilit kontrolü
+                if (task.requiredLevel > this.userStats.level) {
+                    if (notificationSystem) {
+                        notificationSystem.warning(
+                            'Görev Kilitli',
+                            `Bu görevi açmak için Seviye ${task.requiredLevel} olmalısınız.`
+                        );
+                    }
+                    return;
+                }
+                
+                // Tamamlanmış mı kontrol et
+                if (this.completedTasks.has(taskId)) {
+                    // Görevi geri al
+                    this.completedTasks.delete(taskId);
+                    this.userStats.xp -= task.reward;
+                    
+                    // Seviye yeniden hesapla
+                    this.userStats.level = Math.floor(this.userStats.xp / 100) + 1;
+                    
+                    if (notificationSystem) {
+                        notificationSystem.info(
+                            'Görev Geri Alındı',
+                            `${task.title} görevi geri alındı. -${task.reward} XP`
+                        );
+                    }
+                } else {
+                    // Yeni görev tamamlama
+                    this.completedTasks.add(taskId);
+                    this.userStats.xp += task.reward;
+                    
+                    // Seviye kontrolü
+                    const oldLevel = this.userStats.level;
+                    this.userStats.level = Math.floor(this.userStats.xp / 100) + 1;
+                    
+                    // Bildirim göster
+                    if (notificationSystem) {
+                        notificationSystem.success(
+                            '🎉 Görev Tamamlandı!',
+                            `${task.title} tamamlandı! +${task.reward} XP kazandınız.`
+                        );
+                    }
+                    
+                    // Seviye atlama kontrolü
+                    if (this.userStats.level > oldLevel) {
+                        this.handleLevelUp(oldLevel, this.userStats.level);
+                    }
+                    
+                    // Animasyon
+                    const taskElement = document.querySelector(`[data-task-id="${taskId}"]`);
+                    if (taskElement) {
+                        taskElement.classList.add('task-complete-animation');
+                        setTimeout(() => {
+                            taskElement.classList.remove('task-complete-animation');
+                        }, 500);
+                    }
+                }
+                
+                // Kaydet ve güncelle
+                this.saveProgress();
+                this.updateUI();
+                this.renderTasks();
+            }
+            
+            completeDailyTask(taskId) {
+                const task = this.dailyTasks.find(t => t.id === taskId);
+                if (!task || task.completed) return;
+                
+                task.completed = true;
+                this.userStats.xp += task.reward;
+                
+                // Günlük streak güncelle
+                this.updateDailyStreak();
+                
+                // Bildirim
+                if (notificationSystem) {
+                    notificationSystem.success(
+                        '📅 Günlük Görev Tamamlandı!',
+                        `${task.title} tamamlandı! +${task.reward} XP`
+                    );
+                }
+                
+                // Kaydet
+                localStorage.setItem('daily_tasks', JSON.stringify(this.dailyTasks));
+                this.saveUserStats();
+                this.updateUI();
+                this.renderDailyTasks();
+            }
+            
+            updateDailyStreak() {
+                const today = new Date().toDateString();
+                const lastStreakUpdate = localStorage.getItem('last_streak_update');
+                
+                if (lastStreakUpdate !== today) {
+                    this.userStats.streak++;
+                    localStorage.setItem('last_streak_update', today);
+                    
+                    // Streak ödülleri
+                    if (this.userStats.streak % 7 === 0) {
+                        const bonus = 50;
+                        this.userStats.xp += bonus;
+                        
+                        if (notificationSystem) {
+                            notificationSystem.success(
+                                '🔥 7 Günlük Streak!',
+                                `${this.userStats.streak} günlük streak! +${bonus} bonus XP`
+                            );
+                        }
+                    }
+                }
+            }
+            
+            handleLevelUp(oldLevel, newLevel) {
+                // Seviye atlama efekti
+                const levelUpEffect = document.createElement('div');
+                levelUpEffect.className = 'level-up-animation';
+                levelUpEffect.innerHTML = `
+                    <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; 
+                               background: rgba(0,0,0,0.8); z-index: 99999; display: flex; 
+                               align-items: center; justify-content: center; flex-direction: column;
+                               color: white; text-align: center;">
+                        <div style="font-size: 5rem; margin-bottom: 1rem;">🎊</div>
+                        <h1 style="color: gold; font-size: 2.5rem; margin-bottom: 0.5rem;">SEVİYE ATLADIN!</h1>
+                        <h2 style="font-size: 4rem; margin-bottom: 1rem;">${oldLevel} → ${newLevel}</h2>
+                        <p style="font-size: 1.25rem; max-width: 500px;">
+                            Tebrikler! Yeni görevler ve ödüllerin kilidi açıldı!
+                        </p>
+                    </div>
+                `;
+                
+                document.body.appendChild(levelUpEffect);
+                
+                setTimeout(() => {
+                    levelUpEffect.remove();
+                }, 3000);
+                
+                // Bildirim
+                if (notificationSystem) {
+                    notificationSystem.success(
+                        '🎊 SEVİYE ATLADIN!',
+                        `Seviye ${oldLevel}'den ${newLevel}'e yükseldin! Yeni özellikler açıldı.`
+                    );
+                }
+            }
+            
+            checkAchievements() {
+                this.achievements.forEach(achievement => {
+                    if (!this.unlockedAchievements.has(achievement.id) && achievement.condition()) {
+                        this.unlockAchievement(achievement.id);
+                    }
+                });
+            }
+            
+            unlockAchievement(achievementId) {
+                const achievement = this.achievements.find(a => a.id === achievementId);
+                if (!achievement || this.unlockedAchievements.has(achievementId)) return;
+                
+                this.unlockedAchievements.add(achievementId);
+                this.userStats.xp += achievement.reward;
+                
+                // Bildirim
+                if (notificationSystem) {
+                    notificationSystem.success(
+                        '🏆 BAŞARIM AÇILDI!',
+                        `${achievement.title} başarımını kazandınız! +${achievement.reward} XP`
+                    );
+                }
+                
+                // Özel efekt
+                this.showAchievementEffect(achievement);
+                
+                // Kaydet
+                localStorage.setItem('taskSystem_achievements', 
+                    JSON.stringify([...this.unlockedAchievements]));
+                this.saveUserStats();
+                this.updateUI();
+                this.renderAchievements();
+            }
+            
+            showAchievementEffect(achievement) {
+                const effect = document.createElement('div');
+                effect.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: linear-gradient(135deg, #1a1a2e, #16213e);
+                    color: white;
+                    padding: 2rem;
+                    border-radius: 20px;
+                    text-align: center;
+                    z-index: 99999;
+                    animation: achievementPopup 2s ease-in-out;
+                    border: 3px solid gold;
+                    min-width: 300px;
+                    max-width: 90vw;
+                    box-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
+                `;
+                
+                effect.innerHTML = `
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">${achievement.icon}</div>
+                    <div style="font-size: 2rem; color: gold; margin-bottom: 0.5rem;">🏆 BAŞARIM!</div>
+                    <h3 style="margin-bottom: 0.5rem; font-size: 1.5rem;">${achievement.title}</h3>
+                    <p style="margin-bottom: 1rem; opacity: 0.9;">${achievement.description}</p>
+                    <div style="background: linear-gradient(135deg, #fbbf24, #f59e0b); 
+                               padding: 0.5rem 1rem; border-radius: 20px; font-weight: bold;">
+                        +${achievement.reward} XP
+                    </div>
+                `;
+                
+                document.body.appendChild(effect);
+                
+                setTimeout(() => {
+                    effect.style.animation = 'achievementPopupOut 0.5s ease forwards';
+                    setTimeout(() => effect.remove(), 500);
+                }, 2000);
+                
+                // CSS animasyonları
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes achievementPopup {
+                        0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+                        15% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+                        30% { transform: translate(-50%, -50%) scale(1); }
+                        85% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+                        100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+                    }
+                    @keyframes achievementPopupOut {
+                        to { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            purchaseReward(rewardId) {
+                const reward = this.rewards.find(r => r.id === rewardId);
+                if (!reward) return;
+                
+                // Kontroller
+                if (this.purchasedRewards.has(rewardId)) {
+                    if (notificationSystem) {
+                        notificationSystem.info('Zaten Satın Alındı', 'Bu ödül zaten satın alınmış.');
+                    }
+                    return;
+                }
+                
+                if (this.userStats.coins < reward.price) {
+                    if (notificationSystem) {
+                        notificationSystem.error('Yetersiz Bakiye', 'Bu ödülü almak için yeterli jetona sahip değilsiniz.');
+                    }
+                    return;
+                }
+                
+                if (this.userStats.level < reward.levelRequired) {
+                    if (notificationSystem) {
+                        notificationSystem.warning('Seviye Yetersiz', `Bu ödül için Seviye ${reward.levelRequired} gerekiyor.`);
+                    }
+                    return;
+                }
+                
+                // Satın alma işlemi
+                this.purchasedRewards.add(rewardId);
+                this.userStats.coins -= reward.price;
+                
+                // Bildirim
+                if (notificationSystem) {
+                    notificationSystem.success(
+                        '🎁 Ödül Satın Alındı!',
+                        `${reward.title} başarıyla satın alındı!`
+                    );
+                }
+                
+                // Ödülü uygula
+                this.applyReward(rewardId);
+                
+                // Kaydet
+                localStorage.setItem('taskSystem_rewards', 
+                    JSON.stringify([...this.purchasedRewards]));
+                this.saveUserStats();
+                this.updateUI();
+                this.renderRewards();
+            }
+            
+            applyReward(rewardId) {
+                // Ödülleri uygula
+                switch(rewardId) {
+                    case 'reward_badge':
+                        // Özel rozet ekle
+                        console.log('Özel rozet eklendi');
+                        break;
+                    case 'reward_theme':
+                        // Özel tema uygula
+                        document.documentElement.style.setProperty('--primary', '#8b5cf6');
+                        document.documentElement.style.setProperty('--secondary', '#06b6d4');
+                        break;
+                    case 'reward_title':
+                        // Özel unvan ekle
+                        console.log('Özel unvan eklendi');
+                        break;
+                    case 'reward_certificate':
+                        // Sertifika göster
+                        this.showCertificate();
+                        break;
+                }
+            }
+            
+            showCertificate() {
+                const certificate = document.createElement('div');
+                certificate.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: rgba(0,0,0,0.9);
+                    z-index: 99999;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 2rem;
+                `;
+                
+                certificate.innerHTML = `
+                    <div style="background: white; padding: 3rem; border-radius: 20px; 
+                               max-width: 800px; width: 100%; text-align: center;
+                               border: 20px solid #8b5cf6; position: relative;">
+                        <button onclick="this.parentElement.parentElement.remove()"
+                               style="position: absolute; top: 1rem; right: 1rem; 
+                               background: none; border: none; font-size: 1.5rem; cursor: pointer;">
+                            ×
+                        </button>
+                        
+                        <div style="border-bottom: 3px solid gold; padding-bottom: 2rem; margin-bottom: 2rem;">
+                            <h1 style="color: #1a1a2e; font-size: 2.5rem; margin-bottom: 1rem;">
+                                🏆 SERTİFİKA
+                            </h1>
+                            <p style="color: #666; font-size: 1.25rem;">
+                                TEMP Teknoloji Platformu
+                            </p>
+                        </div>
+                        
+                        <div style="margin-bottom: 2rem;">
+                            <h2 style="color: #8b5cf6; font-size: 2rem; margin-bottom: 1rem;">
+                                Başarı Sertifikası
+                            </h2>
+                            <p style="font-size: 1.5rem; margin-bottom: 2rem;">
+                                Bu sertifika, <strong>${this.userStats.xp} XP</strong> ve 
+                                <strong>Seviye ${this.userStats.level}</strong> başarısı nedeniyle
+                            </p>
+                            <div style="font-size: 2.5rem; color: #1a1a2e; margin-bottom: 2rem;">
+                                TEMP Üyesi'ne
+                            </div>
+                            <p style="font-size: 1.25rem; color: #666;">
+                                verilmiştir.
+                            </p>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; margin-top: 3rem; 
+                                   border-top: 2px solid #eee; padding-top: 2rem;">
+                            <div>
+                                <div style="font-weight: bold;">TEMP Yöneticisi</div>
+                                <div style="margin-top: 2rem; height: 1px; background: #000; width: 150px;"></div>
+                                <div style="margin-top: 0.5rem;">Bersi Akdağ</div>
+                            </div>
+                            <div>
+                                <div style="font-weight: bold;">Tarih</div>
+                                <div style="margin-top: 2rem; font-size: 1.25rem;">
+                                    ${new Date().toLocaleDateString('tr-TR')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(certificate);
+            }
+            
+            saveProgress() {
+                localStorage.setItem('taskSystem_completed', 
+                    JSON.stringify([...this.completedTasks]));
+                this.saveUserStats();
+            }
+            
+            openTaskSystem() {
+                document.getElementById('taskSystem').classList.add('active');
+                document.getElementById('taskOverlay').classList.add('active');
+                localStorage.setItem('taskSystemOpen', 'true');
+                
+                // UI'ı güncelle
+                this.renderTasks();
+                this.renderDailyTasks();
+            }
+            
+            closeTaskSystem() {
+                document.getElementById('taskSystem').classList.remove('active');
+                document.getElementById('taskOverlay').classList.remove('active');
+                localStorage.setItem('taskSystemOpen', 'false');
+            }
+            
+            toggleTaskSystem() {
+                if (document.getElementById('taskSystem').classList.contains('active')) {
+                    this.closeTaskSystem();
+                } else {
+                    this.openTaskSystem();
+                }
+            }
+            
+            showWelcomeNotification() {
+                if (notificationSystem && !localStorage.getItem('task_welcome_shown')) {
+                    notificationSystem.info(
+                        '🏆 Görev Sistemi Aktif!',
+                        'Sağ üstteki rozet iconuna tıklayarak görevleri görüntüleyebilir ve ödüller kazanabilirsiniz!',
+                        8000
+                    );
+                    localStorage.setItem('task_welcome_shown', 'true');
+                }
+            }
+            
+            // Hızlı erişim fonksiyonları
+            getStats() {
+                return {
+                    xp: this.userStats.xp,
+                    level: this.userStats.level,
+                    streak: this.userStats.streak,
+                    completedTasks: this.completedTasks.size,
+                    totalTasks: this.tasks.length,
+                    progress: Math.round((this.completedTasks.size / this.tasks.length) * 100)
+                };
+            }
+            
+            addCoins(amount) {
+                this.userStats.coins += amount;
+                this.saveUserStats();
+                this.updateUI();
+                
+                if (notificationSystem) {
+                    notificationSystem.success(
+                        '💰 Jeton Eklendi!',
+                        `+${amount} jeton kazandınız! Toplam: ${this.userStats.coins}`
+                    );
+                }
+            }
+            
+            // Debug fonksiyonu
+            debugReset() {
+                if (confirm('Görev sistemini sıfırlamak istediğinize emin misiniz? Tüm ilerleme silinecek.')) {
+                    localStorage.removeItem('taskSystem_stats');
+                    localStorage.removeItem('taskSystem_completed');
+                    localStorage.removeItem('taskSystem_achievements');
+                    localStorage.removeItem('taskSystem_rewards');
+                    localStorage.removeItem('daily_tasks');
+                    localStorage.removeItem('daily_tasks_reset');
+                    localStorage.removeItem('task_welcome_shown');
+                    
+                    location.reload();
+                }
+            }
+        }
+
+        // Global instance oluştur
+        const taskSystem = new IntegratedTaskSystem();
+
+        // Hızlı erişim için global fonksiyonlar
+        window.toggleTaskSystem = () => taskSystem.toggleTaskSystem();
+        window.completeTask = (taskId) => taskSystem.completeTask(taskId);
+        window.getTaskStats = () => taskSystem.getStats();
+
+        // ===== NOTIFICATION SYSTEM JAVASCRIPT =====
+        class NotificationSystem {
+            constructor() {
+                this.container = null;
+                this.queue = [];
+                this.isShowing = false;
+                this.settings = {
+                    system: true,
+                    education: true,
+                    updates: true,
+                    offers: true
+                };
+                this.init();
+            }
+            
+            init() {
+                // Container oluştur
+                this.container = document.getElementById('notification-container');
+                if (!this.container) {
+                    this.container = document.createElement('div');
+                    this.container.className = 'notification-container';
+                    this.container.id = 'notification-container';
+                    document.body.appendChild(this.container);
+                }
+                
+                // Ayarları yükle
+                this.loadSettings();
+                
+                // Bell icon event
+                const bell = document.getElementById('notificationBell');
+                const settings = document.getElementById('notificationSettings');
+                
+                if (bell && settings) {
+                    bell.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        settings.classList.toggle('active');
+                    });
+                    
+                    // Dışarı tıklayınca kapat
+                    document.addEventListener('click', (e) => {
+                        if (!settings.contains(e.target) && !bell.contains(e.target)) {
+                            settings.classList.remove('active');
+                        }
+                    });
+                    
+                    // Switch eventleri
+                    document.querySelectorAll('.notification-settings input[type="checkbox"]').forEach(checkbox => {
+                        checkbox.addEventListener('change', (e) => {
+                            const id = e.target.id;
+                            const value = e.target.checked;
+                            
+                            switch(id) {
+                                case 'systemNotifications': this.settings.system = value; break;
+                                case 'educationReminders': this.settings.education = value; break;
+                                case 'updateAnnouncements': this.settings.updates = value; break;
+                                case 'specialOffers': this.settings.offers = value; break;
+                            }
+                            
+                            this.saveSettings();
+                        });
+                    });
+                }
+                
+                // Permission kontrolü
+                this.checkPermission();
+                
+                // Otomatik bildirimler
+                this.setupAutoNotifications();
+            }
+            
+            loadSettings() {
+                const saved = localStorage.getItem('temp-notification-settings');
+                if (saved) {
+                    this.settings = JSON.parse(saved);
+                    
+                    // UI'ı güncelle
+                    if (document.getElementById('systemNotifications')) {
+                        document.getElementById('systemNotifications').checked = this.settings.system;
+                        document.getElementById('educationReminders').checked = this.settings.education;
+                        document.getElementById('updateAnnouncements').checked = this.settings.updates;
+                        document.getElementById('specialOffers').checked = this.settings.offers;
+                    }
+                }
+            }
+            
+            saveSettings() {
+                localStorage.setItem('temp-notification-settings', JSON.stringify(this.settings));
+            }
+            
+            checkPermission() {
+                if ('Notification' in window && Notification.permission === 'default') {
+                    setTimeout(() => {
+                        if (this.settings.system) {
+                            this.info(
+                                'Bildirimler 🔔',
+                                'Önemli güncellemelerden haberdar olmak için bildirim izni verebilirsiniz.',
+                                6000
+                            );
+                        }
+                    }, 8000);
+                }
+            }
+            
+            requestPermission() {
+                if ('Notification' in window) {
+                    Notification.requestPermission().then(permission => {
+                        if (permission === 'granted') {
+                            this.success('Başarılı!', 'Bildirimler açıldı.');
+                        }
+                    });
+                }
+            }
+            
+            show(title, message, type = 'info', duration = 4000, category = 'system') {
+                // Kategori kontrolü
+                if (!this.settings[category]) return;
+                
+                const notification = {
+                    id: Date.now() + Math.random(),
+                    title,
+                    message,
+                    type,
+                    duration,
+                    category
+                };
+                
+                this.queue.push(notification);
+                this.processQueue();
+                
+                // Bell icon güncelle
+                this.updateBellIcon();
+                
+                // Browser notification (izin varsa)
+                if (this.settings.system && 'Notification' in window && Notification.permission === 'granted') {
+                    this.showBrowserNotification(title, message);
+                }
+            }
+            
+            showBrowserNotification(title, message) {
+                const options = {
+                    body: message,
+                    icon: '/favicon.ico',
+                    badge: '/favicon.ico',
+                    tag: 'temp-notification'
+                };
+                
+                new Notification(title, options);
+            }
+            
+            processQueue() {
+                if (this.isShowing || this.queue.length === 0) return;
+                
+                this.isShowing = true;
+                const notification = this.queue.shift();
+                this.createNotificationElement(notification);
+            }
+            
+            createNotificationElement(notification) {
+                const { id, title, message, type, duration } = notification;
+                
+                // Icon belirle
+                let icon;
+                switch(type) {
+                    case 'success': icon = '✓'; break;
+                    case 'warning': icon = '⚠'; break;
+                    case 'error': icon = '✗'; break;
+                    case 'info': 
+                    default: icon = '💬';
+                }
+                
+                const notificationEl = document.createElement('div');
+                notificationEl.className = `notification ${type}`;
+                notificationEl.id = `notification-${id}`;
+                
+                notificationEl.innerHTML = `
+                    <div class="notification-icon">${icon}</div>
+                    <div class="notification-content">
+                        <div class="notification-title">${title}</div>
+                        <div class="notification-message">${message}</div>
+                    </div>
+                    <button class="notification-close" onclick="notificationSystem.close(${id})">×</button>
+                `;
+                
+                this.container.appendChild(notificationEl);
+                
+                // Otomatik kapanma
+                if (duration > 0) {
+                    setTimeout(() => this.close(id), duration);
+                }
+                
+                setTimeout(() => {
+                    this.isShowing = false;
+                    this.processQueue();
+                }, 300);
+            }
+            
+            close(id) {
+                const notificationEl = document.getElementById(`notification-${id}`);
+                if (notificationEl) {
+                    notificationEl.classList.add('hide');
+                    setTimeout(() => {
+                        notificationEl.remove();
+                        this.isShowing = false;
+                        this.processQueue();
+                        this.updateBellIcon();
+                    }, 300);
+                }
+            }
+            
+            updateBellIcon() {
+                const bell = document.getElementById('notificationBell');
+                if (bell) {
+                    if (this.queue.length > 0) {
+                        bell.classList.add('has-notifications');
+                    } else {
+                        bell.classList.remove('has-notifications');
+                    }
+                }
+            }
+            
+            setupAutoNotifications() {
+                // Hoş geldin bildirimi
+                setTimeout(() => {
+                    if (this.settings.system) {
+                        this.show(
+                            'TEMP\'e Hoş Geldiniz! 🚀',
+                            'Teknoloji yolculuğunuz başlıyor. İlk adımı atın!',
+                            'info',
+                            5000,
+                            'system'
+                        );
+                    }
+                }, 2000);
+                
+                // Scroll bildirimi
+                let scrollNotified = false;
+                window.addEventListener('scroll', () => {
+                    if (!scrollNotified && window.scrollY > 300 && this.settings.education) {
+                        scrollNotified = true;
+                        this.show(
+                            'Keşfetmeye Devam Edin 📚',
+                            'Öğrenme yolunu görmek için aşağı kaydırın.',
+                            'success',
+                            4000,
+                            'education'
+                        );
+                    }
+                });
+                
+                // Form görüldüğünde
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && this.settings.updates) {
+                            this.show(
+                                'Ekibe Katılın! 👥',
+                                'Formu doldurarak TEMP ailesine katılabilirsiniz.',
+                                'warning',
+                                5000,
+                                'updates'
+                            );
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                const joinSection = document.getElementById('join');
+                if (joinSection) observer.observe(joinSection);
+                
+                // Discord bağlantısı
+                document.addEventListener('click', (e) => {
+                    if (e.target.closest('a[href*="discord"]') && this.settings.offers) {
+                        setTimeout(() => {
+                            this.show(
+                                'Discord Topluluğu 🎮',
+                                'Sunucumuza katıldığınız için teşekkürler! #genel kanalından başlayabilirsiniz.',
+                                'success',
+                                6000,
+                                'offers'
+                            );
+                        }, 1000);
+                    }
+                });
+                
+                // Sayfa kapanırken
+                window.addEventListener('beforeunload', () => {
+                    if (this.settings.system && Math.random() > 0.7) {
+                        this.showBrowserNotification(
+                            'Tekrar Bekleriz! 👋',
+                            'TEMP\'de her zaman yenilikler var. Yakında görüşmek üzere!'
+                        );
+                    }
+                });
+            }
+            
+            // Kullanımı kolay metodlar
+            success(title, message, duration = 4000) {
+                this.show(title, message, 'success', duration, 'system');
+            }
+            
+            error(title, message, duration = 4000) {
+                this.show(title, message, 'error', duration, 'system');
+            }
+            
+            warning(title, message, duration = 4000) {
+                this.show(title, message, 'warning', duration, 'system');
+            }
+            
+            info(title, message, duration = 4000) {
+                this.show(title, message, 'info', duration, 'system');
+            }
+            
+            clearAll() {
+                document.querySelectorAll('.notification').forEach(notification => {
+                    notification.classList.add('hide');
+                    setTimeout(() => notification.remove(), 300);
+                });
+                this.queue = [];
+                this.updateBellIcon();
+            }
+        }
+
+        // Global instance
+        const notificationSystem = new NotificationSystem();
+
+        // Test fonksiyonu
+        function testNotification() {
+            const types = ['success', 'error', 'warning', 'info'];
+            const messages = [
+                ['Başarılı! 🎉', 'İşleminiz başarıyla tamamlandı.'],
+                ['Hata! ❌', 'Bir şeyler yanlış gitti. Lütfen tekrar deneyin.'],
+                ['Uyarı! ⚠', 'Bu işlem geri alınamaz.'],
+                ['Bilgi ℹ', 'Yeni özellikler eklendi, kontrol edin!']
+            ];
+            
+            const random = Math.floor(Math.random() * 4);
+            const [title, message] = messages[random];
+            
+            notificationSystem[types[random]](title, message);
+        }
+
+        // Kullanım örnekleri:
+        // notificationSystem.success('Başlık', 'Mesaj');
+        // notificationSystem.error('Hata', 'Bir hata oluştu');
+        // notificationSystem.info('Bilgi', 'Yeni içerik eklendi');
     </script>
+    
+    <!-- Google Translate Script -->
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
